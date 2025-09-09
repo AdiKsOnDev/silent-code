@@ -8,17 +8,37 @@ The development process uses a decomposed agent architecture where specialized a
 
 ## Optimized Agent Architecture
 
-### Specialized Agents
+### Core Development Agents
+- **iteration-planner**: Creates structured, iteration-based development plans for complex multi-component projects
 - **iteration-coordinator**: Lightweight orchestrator managing workflow and state transitions
 - **implementation-agent**: Pure coding specialist optimized for feature development
 - **review-manager**: Parallel review orchestrator running all QA agents simultaneously  
 - **feedback-processor**: Rapid issue resolution specialist for addressing review feedback
+
+### Review & Quality Agents
+- **code-quality**: Analyzes code structure, readability, complexity, and language conventions with automated linting
+- **project-tester**: Runs comprehensive unit tests, integration tests, and functional validation
+- **documentation-checker**: Validates docstrings, inline comments, and ensures meaningful documentation
+- **ci-cd-professional**: Creates GitHub workflows, automation scripts, and deployment pipelines
 
 ### Performance Benefits
 - **Parallel Reviews**: All QA agents run simultaneously instead of sequentially
 - **Specialized Context**: Each agent optimized for specific tasks with minimal overhead
 - **Faster Cycles**: Reduced context switching and improved focus per agent
 - **Better Scaling**: Independent agents can be optimized and cached separately
+
+## Agent Planning Phase
+
+### 0. Planning an Iteration
+If `tmp/project_plan.md` does not exist, ask user clarifying questions and use the iteration-planner to create `tmp/project_plan.md`
+
+**iteration-planner Capabilities:**
+- Analyzes complex project requirements and breaks them into manageable iterations
+- Creates structured development plans with clear deliverables and dependencies
+- Sequences iterations logically to minimize rework and risk
+- Defines success metrics and acceptance criteria for each iteration
+- Provides estimation and timeline guidance
+- Identifies potential bottlenecks and mitigation strategies
 
 ## Orchestration Workflow
 
@@ -126,6 +146,40 @@ The review-manager coordinates all review agents simultaneously for maximum effi
 - **Aggregated Results**: Consolidated review report with unified approval status
 - **Smart Coordination**: review-manager handles timing, failures, and result synthesis
 - **Maintained Quality**: Same comprehensive coverage with faster execution
+
+### Detailed Review Agent Capabilities
+
+**code-quality Agent:**
+- Runs comprehensive linting tools (ruff, mypy, bandit for Python; eslint, prettier for JS/TS)
+- Analyzes code structure using Beautiful Code Principles (8 principles framework)
+- Checks coding standards compliance and naming conventions
+- Evaluates complexity and maintainability metrics
+- Validates security best practices and vulnerability scanning
+- Provides specific improvement recommendations with file/line references
+
+**project-tester Agent:**
+- Automatically detects testing frameworks (pytest, jest, vitest, etc.)
+- Runs comprehensive unit, integration, and functional tests
+- Validates application runtime and feature functionality
+- Tests API endpoints and CLI functionality where applicable
+- Generates coverage reports and identifies untested code paths
+- Provides detailed failure analysis with reproduction steps
+
+**documentation-checker Agent:**
+- Validates docstring presence and quality for all public interfaces
+- Ensures inline comments explain WHY (not WHAT) with meaningful context
+- Checks adherence to documentation style guides (Google/NumPy for Python, JSDoc for JS)
+- Identifies missing documentation for complex logic and business rules
+- Flags inappropriate comments that restate obvious code
+- Provides specific text recommendations for documentation improvements
+
+**ci-cd-professional Agent:**
+- Creates comprehensive GitHub workflows for automated testing and deployment
+- Generates robust Makefiles with development, testing, and deployment targets
+- Sets up multi-language linting pipelines (ruff/mypy/bandit for Python, etc.)
+- Implements security monitoring and dependency vulnerability scanning
+- Configures multi-environment testing matrices
+- Optimizes build performance with intelligent caching strategies
 
 ### Review Result Format
 
@@ -248,14 +302,19 @@ If you have existing workflows using the monolithic iteration-executor:
 
 ## Complete Workflow Integration
 
-### Agent Responsibilities Summary
+### Complete Agent Ecosystem Summary
 
-| Agent | Purpose | Optimizes For | Key Benefits |
-|-------|---------|---------------|--------------|
-| **iteration-coordinator** | Orchestrates entire iteration lifecycle | Workflow efficiency | Lightweight delegation, state management |
-| **implementation-agent** | Pure feature development | Code development speed | No context switching, focused coding |  
-| **review-manager** | Parallel quality assurance | Review cycle time | 4x faster through parallel execution |
-| **feedback-processor** | Issue resolution | Fix iteration speed | Rapid, systematic problem resolution |
+| Agent | Category | Purpose | Optimizes For | Key Benefits |
+|-------|----------|---------|---------------|--------------|
+| **iteration-planner** | Planning | Creates structured development plans | Project planning | Break complex projects into manageable iterations |
+| **iteration-coordinator** | Orchestration | Manages iteration lifecycle | Workflow efficiency | Lightweight delegation, state management |
+| **implementation-agent** | Development | Pure feature development | Code development speed | No context switching, focused coding |
+| **review-manager** | Coordination | Parallel quality assurance | Review cycle time | 4x faster through parallel execution |
+| **feedback-processor** | Resolution | Issue resolution | Fix iteration speed | Rapid, systematic problem resolution |
+| **code-quality** | QA Review | Code analysis & linting | Code quality | Comprehensive quality analysis with 8 Beautiful Code principles |
+| **project-tester** | QA Review | Testing & validation | Test coverage | Multi-framework testing with detailed failure analysis |
+| **documentation-checker** | QA Review | Documentation quality | Documentation standards | WHY-focused comments, complete docstrings |
+| **ci-cd-professional** | QA Review | Automation & deployment | DevOps efficiency | Comprehensive CI/CD with multi-language support |
 
 ### Workflow State Transitions
 
@@ -292,5 +351,39 @@ COMPLETED (iteration-coordinator → final reporting)
 - **Implementation Phase**: 40% faster (focused coding agent)
 - **Feedback Phase**: 60% faster (dedicated issue resolution)
 - **Overall Iteration**: 50-70% faster completion time
+
+## Agent Usage Guide
+
+### When to Use Each Agent
+
+**Planning Phase:**
+- Use **iteration-planner** when starting a new complex project or when `tmp/project_plan.md` doesn't exist
+- Example: `"Use iteration-planner to create a development plan for building a microservices authentication system"`
+
+**Development Phase:**
+- Use **iteration-coordinator** to orchestrate complete iteration execution
+- Use **implementation-agent** when you need focused coding without workflow overhead
+- Examples: 
+  - `"Use iteration-coordinator to begin iteration 2"`
+  - `"Use implementation-agent to implement the user authentication API endpoints"`
+
+**Quality Assurance Phase:**
+- Use **review-manager** to run all reviews in parallel after implementation
+- Use individual review agents only when you need specific analysis
+- Examples:
+  - `"Use review-manager to run all quality assurance reviews for iteration 1"`
+  - `"Use code-quality agent to analyze the new authentication module"`
+
+**Issue Resolution Phase:**
+- Use **feedback-processor** when reviews identify issues that need systematic fixes
+- Example: `"Use feedback-processor to address the 8 issues identified in consolidated-review.md"`
+
+### Typical Workflow Sequence
+
+1. **Project Start**: `iteration-planner` → creates `tmp/project_plan.md`
+2. **Iteration Execution**: `iteration-coordinator` → delegates to `implementation-agent`
+3. **Quality Review**: `review-manager` → runs all QA agents in parallel
+4. **Issue Resolution**: `feedback-processor` → fixes issues, triggers re-review
+5. **Completion**: `iteration-coordinator` → finalizes iteration, prepares next
 
 This optimized orchestration approach provides significant performance improvements while maintaining comprehensive quality assurance and workflow continuity.
