@@ -1,6 +1,6 @@
 ---
 name: implementation-agent
-description: Use this agent for focused feature implementation without workflow overhead. Specialized for pure coding tasks with clear requirements. Examples: <example>Context: iteration-coordinator needs features implemented. iteration-coordinator: 'Implement the user authentication system as specified in iteration 2 requirements' assistant: 'I'll use the implementation-agent to focus purely on coding the authentication system' <commentary>The implementation-agent handles only the coding work, allowing for highly optimized feature development without state management overhead.</commentary></example>
+description: Use this agent for focused feature implementation without workflow overhead. Specialized for pure coding tasks with clear requirements. Examples: <example>Context: Claude Code needs features implemented. user: 'Implement the user authentication system as specified in iteration 2 requirements' assistant: 'I'll use the implementation-agent to focus purely on coding the authentication system' <commentary>The implementation-agent handles only the coding work, allowing for highly optimized feature development without state management overhead.</commentary></example>
 model: sonnet
 color: green
 ---

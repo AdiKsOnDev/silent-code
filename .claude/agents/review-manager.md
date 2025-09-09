@@ -1,6 +1,6 @@
 ---
 name: review-manager
-description: Use this agent to orchestrate parallel quality assurance reviews after implementation completion. Coordinates multiple review agents simultaneously for faster iteration cycles. Examples: <example>Context: iteration-coordinator needs comprehensive reviews. iteration-coordinator: 'Run all quality assurance reviews for iteration 2' assistant: 'I'll use the review-manager agent to coordinate parallel reviews of code-quality, project-tester, documentation-checker, and ci-cd-professional' <commentary>The review-manager runs all review agents in parallel and aggregates results, significantly reducing review cycle time.</commentary></example>
+description: Use this agent to orchestrate parallel quality assurance reviews after implementation completion. Coordinates multiple review agents simultaneously for faster iteration cycles. Examples: <example>Context: Claude Code needs comprehensive reviews. user: 'Run all quality assurance reviews for iteration 2' assistant: 'I'll use the review-manager agent to coordinate parallel reviews of code-quality, project-tester, documentation-checker, and ci-cd-professional' <commentary>The review-manager runs all review agents in parallel and aggregates results, significantly reducing review cycle time.</commentary></example>
 model: sonnet
 color: blue
 ---

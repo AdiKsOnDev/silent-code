@@ -10,10 +10,11 @@ The development process uses a decomposed agent architecture where specialized a
 
 ### Core Development Agents
 - **iteration-planner**: Creates structured, iteration-based development plans for complex multi-component projects
-- **iteration-coordinator**: Lightweight orchestrator managing workflow and state transitions
 - **implementation-agent**: Pure coding specialist optimized for feature development
 - **review-manager**: Parallel review orchestrator running all QA agents simultaneously  
 - **feedback-processor**: Rapid issue resolution specialist for addressing review feedback
+
+**Note**: Claude Code itself acts as the iteration orchestrator, managing workflow state and delegating to specialized agents.
 
 ### Review & Quality Agents
 - **code-quality**: Analyzes code structure, readability, complexity, and language conventions with automated linting
@@ -47,10 +48,10 @@ If `tmp/project_plan.md` does not exist, ask user clarifying questions and use t
 
 ### 1. Starting an Iteration
 ```
-User/Claude: "Use iteration-coordinator to begin iteration 1"
-→ iteration-coordinator analyzes tmp/project_plan.md  
+User: "Start iteration 1 from the project plan"
+→ Claude Code analyzes tmp/project_plan.md  
 → Creates tmp/reports/iteration_1/state.md with PLANNING status
-→ Delegates to implementation-agent for feature development
+→ Delegates to implementation-agent using Task tool for feature development
 → Monitors implementation progress through state management
 ```
 
@@ -58,25 +59,27 @@ User/Claude: "Use iteration-coordinator to begin iteration 1"
 When implementation is complete:
 
 ```
-iteration-coordinator: "Implementation complete. Delegating to review-manager."
+Claude Code: "Implementation complete. Delegating to review-manager."
+→ Uses Task tool to launch review-manager
 → review-manager launches ALL review agents in parallel:
   ├── code-quality agent (async)
   ├── project-tester agent (async)  
   ├── documentation-checker agent (async)
   └── ci-cd-professional agent (async)
 → Aggregates results into consolidated-review.md
-→ Returns APPROVED/NEEDS_CHANGES status to iteration-coordinator
+→ Returns APPROVED/NEEDS_CHANGES status to Claude Code
 ```
 
 ### 3. Feedback Processing (if needed)
 If reviews show NEEDS_CHANGES:
 
 ```
-iteration-coordinator: "Issues found. Delegating to feedback-processor."
+Claude Code: "Issues found. Delegating to feedback-processor."
+→ Uses Task tool to launch feedback-processor
 → feedback-processor reads consolidated review feedback
 → Systematically addresses all NEEDS_CHANGES items  
 → Creates feedback-fixes.md with change summary
-→ iteration-coordinator triggers re-review cycle via review-manager
+→ Claude Code triggers re-review cycle via review-manager
 → Repeats until all reviews show APPROVED
 ```
 
@@ -84,7 +87,7 @@ iteration-coordinator: "Issues found. Delegating to feedback-processor."
 When all reviews are APPROVED:
 
 ```
-iteration-coordinator: "All reviews approved. Completing iteration."
+Claude Code: "All reviews approved. Completing iteration."
 → Updates state to COMPLETED
 → Generates comprehensive final-report.md
 → Prepares context for next iteration
@@ -124,15 +127,15 @@ Waiting for review-manager to aggregate parallel review results into consolidate
 ## Agent Context for Resume
 - **implementation-agent**: Authentication system complete with JWT tokens
 - **review-manager**: All review agents launched in parallel
-- **iteration-coordinator**: Ready to process review results and delegate next steps
+- **Claude Code**: Ready to process review results and delegate next steps
 ```
 
 ### State Phases & Agent Delegation
-- `PLANNING`: iteration-coordinator analyzing requirements and creating execution plan
+- `PLANNING`: Claude Code analyzing requirements and creating execution plan
 - `IMPLEMENTING`: implementation-agent actively working on features and fixes  
 - `WAITING_FOR_REVIEWS`: review-manager coordinating parallel review execution
 - `ADDRESSING_FEEDBACK`: feedback-processor systematically resolving review issues
-- `COMPLETED`: iteration-coordinator generating final reports and preparing next iteration
+- `COMPLETED`: Claude Code generating final reports and preparing next iteration
 
 ## Optimized Review Agent Coordination
 
@@ -229,32 +232,33 @@ What needs to be fixed for approval (if NEEDS_CHANGES)
 ## Example Optimized Orchestration Session
 
 ```bash
-# Start iteration (single call)
-claude: "Use iteration-coordinator to begin iteration 1"
-# → Automatically delegates to implementation-agent
+# Start iteration (Claude Code orchestrates directly)
+user: "Start iteration 1 from the project plan"
+# → Claude Code analyzes requirements and delegates to implementation-agent
 # → Monitors progress through state management
 
-# Parallel reviews (single orchestrated call)
-claude: "Use review-manager to run all quality assurance reviews for iteration 1"
+# Parallel reviews (Claude Code delegates to review-manager)
+claude: Uses Task tool with review-manager to run all quality assurance reviews
 # → Launches all 4 review agents simultaneously
 # → Aggregates results in ~1/4 the time of sequential reviews
 
-# Feedback processing (if needed, single call)  
-claude: "Use feedback-processor to address the issues in consolidated-review.md"
+# Feedback processing (Claude Code delegates to feedback-processor)  
+claude: Uses Task tool with feedback-processor to address consolidated review issues
 # → Systematically fixes all issues
 # → Prepares for rapid re-review cycle
 
-# Automatic completion through iteration-coordinator
-# → Handles final reporting and iteration closure
+# Completion (Claude Code handles directly)
+# → Updates iteration state to COMPLETED
+# → Generates final reports and prepares for next iteration
 ```
 
 ## Optimized Best Practices
 
-1. **Use specialized agents** - Leverage iteration-coordinator, implementation-agent, review-manager, and feedback-processor for maximum efficiency
+1. **Use specialized agents** - Leverage implementation-agent, review-manager, and feedback-processor with Claude Code orchestration for maximum efficiency
 2. **Enable parallel execution** - Use review-manager to run all review agents simultaneously
 3. **Maintain agent focus** - Keep each agent specialized to its core responsibility
 4. **Check state before resuming** - Read state.md files to understand current context
-5. **Monitor workflow transitions** - Track when iteration-coordinator delegates between agents
+5. **Monitor workflow transitions** - Track when Claude Code delegates between agents via Task tool
 6. **Optimize feedback cycles** - Use feedback-processor for rapid issue resolution
 
 ## Performance Improvements
@@ -263,7 +267,7 @@ claude: "Use feedback-processor to address the issues in consolidated-review.md"
 - **4x faster reviews**: Parallel execution instead of sequential
 - **Reduced context switching**: Specialized agents with focused responsibilities  
 - **Faster feedback cycles**: Dedicated feedback-processor for issue resolution
-- **Streamlined coordination**: Lightweight iteration-coordinator managing workflow
+- **Streamlined coordination**: Claude Code directly managing workflow with native tool access
 
 ### Quality Maintenance  
 - **Comprehensive coverage**: All review agents still execute (just in parallel)
@@ -276,7 +280,7 @@ claude: "Use feedback-processor to address the issues in consolidated-review.md"
 tmp/
 └── reports/
     └── iteration_{number}/
-        ├── state.md              # Current iteration state (managed by iteration-coordinator)
+        ├── state.md              # Current iteration state (managed by Claude Code)
         ├── final-report.md       # Created when COMPLETED
         ├── feedback-fixes.md     # Changes made by feedback-processor
         └── reviews/
@@ -292,7 +296,7 @@ tmp/
 ### From Legacy iteration-executor
 If you have existing workflows using the monolithic iteration-executor:
 
-1. **Immediate improvement**: Replace iteration-executor with iteration-coordinator
+1. **Immediate improvement**: Use Claude Code direct orchestration instead of iteration-executor
 2. **Enable parallel reviews**: Use review-manager instead of manual review coordination  
 3. **Optimize feedback**: Use feedback-processor for faster issue resolution
 4. **Full optimization**: Use implementation-agent for pure coding tasks
@@ -310,7 +314,7 @@ If you have existing workflows using the monolithic iteration-executor:
 | Agent | Category | Purpose | Optimizes For | Key Benefits |
 |-------|----------|---------|---------------|--------------|
 | **iteration-planner** | Planning | Creates structured development plans | Project planning | Break complex projects into manageable iterations |
-| **iteration-coordinator** | Orchestration | Manages iteration lifecycle | Workflow efficiency | Lightweight delegation, state management |
+| **Claude Code** | Orchestration | Direct iteration lifecycle management | Workflow efficiency | Native tool access, state management, direct delegation |
 | **implementation-agent** | Development | Pure feature development | Code development speed | No context switching, focused coding |
 | **review-manager** | Coordination | Parallel quality assurance | Review cycle time | 4x faster through parallel execution |
 | **feedback-processor** | Resolution | Issue resolution | Fix iteration speed | Rapid, systematic problem resolution |
@@ -323,17 +327,17 @@ If you have existing workflows using the monolithic iteration-executor:
 ### Workflow State Transitions
 
 ```
-PLANNING (iteration-coordinator)
+PLANNING (Claude Code orchestration)
     ↓ delegates to
-IMPLEMENTING (implementation-agent)  
+IMPLEMENTING (implementation-agent via Task tool)  
     ↓ triggers  
-WAITING_FOR_REVIEWS (review-manager → parallel QA agents)
+WAITING_FOR_REVIEWS (review-manager via Task tool → parallel QA agents)
     ↓ if NEEDS_CHANGES, delegates to
-ADDRESSING_FEEDBACK (feedback-processor)
+ADDRESSING_FEEDBACK (feedback-processor via Task tool)
     ↓ triggers re-review via  
 WAITING_FOR_REVIEWS (review-manager → parallel re-review)
     ↓ when all APPROVED
-COMPLETED (iteration-coordinator → final reporting)
+COMPLETED (Claude Code → final reporting)
 ```
 
 ### Performance Metrics
@@ -365,10 +369,10 @@ COMPLETED (iteration-coordinator → final reporting)
 - Example: `"Use iteration-planner to create a development plan for building a microservices authentication system"`
 
 **Development Phase:**
-- Use **iteration-coordinator** to orchestrate complete iteration execution
+- **Claude Code orchestrates directly** - no separate coordinator agent needed
 - Use **implementation-agent** when you need focused coding without workflow overhead
 - Examples: 
-  - `"Use iteration-coordinator to begin iteration 2"`
+  - `"Start iteration 2 from the project plan"` (Claude Code handles orchestration)
   - `"Use implementation-agent to implement the user authentication API endpoints"`
 
 **Quality Assurance Phase:**
@@ -392,9 +396,9 @@ COMPLETED (iteration-coordinator → final reporting)
 ### Typical Workflow Sequence
 
 1. **Project Start**: `iteration-planner` → creates `tmp/project_plan.md`
-2. **Iteration Execution**: `iteration-coordinator` → delegates to `implementation-agent`
-3. **Quality Review**: `review-manager` → runs all QA agents in parallel
-4. **Issue Resolution**: `feedback-processor` → fixes issues, triggers re-review
-5. **Completion**: `iteration-coordinator` → finalizes iteration, prepares next
+2. **Iteration Execution**: `Claude Code` → delegates to `implementation-agent` via Task tool
+3. **Quality Review**: `Claude Code` → delegates to `review-manager` via Task tool → runs all QA agents in parallel
+4. **Issue Resolution**: `Claude Code` → delegates to `feedback-processor` via Task tool → fixes issues, triggers re-review
+5. **Completion**: `Claude Code` → finalizes iteration, prepares next
 
 This optimized orchestration approach provides significant performance improvements while maintaining comprehensive quality assurance and workflow continuity.
