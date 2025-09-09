@@ -21,6 +21,9 @@ The development process uses a decomposed agent architecture where specialized a
 - **documentation-checker**: Validates docstrings, inline comments, and ensures meaningful documentation
 - **ci-cd-professional**: Creates GitHub workflows, automation scripts, and deployment pipelines
 
+### Project Management Agents
+- **linear-manager**: Manages Linear issues, projects, and workflows ONLY when explicitly requested by user
+
 ### Performance Benefits
 - **Parallel Reviews**: All QA agents run simultaneously instead of sequentially
 - **Specialized Context**: Each agent optimized for specific tasks with minimal overhead
@@ -315,6 +318,7 @@ If you have existing workflows using the monolithic iteration-executor:
 | **project-tester** | QA Review | Testing & validation | Test coverage | Multi-framework testing with detailed failure analysis |
 | **documentation-checker** | QA Review | Documentation quality | Documentation standards | WHY-focused comments, complete docstrings |
 | **ci-cd-professional** | QA Review | Automation & deployment | DevOps efficiency | Comprehensive CI/CD with multi-language support |
+| **linear-manager** | Project Management | Linear issue & project management | Project tracking | Advanced search, bulk operations, workflow integration |
 
 ### Workflow State Transitions
 
@@ -377,6 +381,13 @@ COMPLETED (iteration-coordinator → final reporting)
 **Issue Resolution Phase:**
 - Use **feedback-processor** when reviews identify issues that need systematic fixes
 - Example: `"Use feedback-processor to address the 8 issues identified in consolidated-review.md"`
+
+**Project Management Phase (User-Requested Only):**
+- Use **linear-manager** ONLY when the user explicitly requests Linear operations
+- **Important**: This agent is NOT used automatically during development workflows
+- Examples:
+  - `"Use linear-manager to create Linear issues for iteration 3 tasks"` (only when user asks)
+  - `"Use linear-manager to update issue SEN-62 status to Done"` (only when user requests)
 
 ### Typical Workflow Sequence
 
