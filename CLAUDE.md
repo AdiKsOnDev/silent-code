@@ -11,7 +11,7 @@ The development process uses a decomposed agent architecture where specialized a
 ### Core Development Agents
 - **iteration-planner**: Creates structured, iteration-based development plans for complex multi-component projects
 - **implementation-agent**: Pure coding specialist optimized for feature development
-- **review-manager**: Parallel review orchestrator running all QA agents simultaneously  
+  
 - **feedback-processor**: Rapid issue resolution specialist for addressing review feedback
 
 **Note**: Claude Code itself acts as the iteration orchestrator, managing workflow state and delegating to specialized agents.
@@ -59,9 +59,8 @@ User: "Start iteration 1 from the project plan"
 When implementation is complete:
 
 ```
-Claude Code: "Implementation complete. Delegating to review-manager."
-→ Uses Task tool to launch review-manager
-→ review-manager launches ALL review agents in parallel:
+Claude Code: "Implementation complete. Running parallel reviews."
+→ Launches ALL review agents in parallel using Task tool:
   ├── code-quality agent (async)
   ├── project-tester agent (async)  
   ├── documentation-checker agent (async)
@@ -133,7 +132,7 @@ Waiting for Claude Code to aggregate parallel review results into consolidated-r
 ### State Phases & Agent Delegation
 - `PLANNING`: Claude Code analyzing requirements and creating execution plan
 - `IMPLEMENTING`: implementation-agent actively working on features and fixes  
-- `WAITING_FOR_REVIEWS`: review-manager coordinating parallel review execution
+- `WAITING_FOR_REVIEWS`: Claude Code coordinating parallel review execution
 - `ADDRESSING_FEEDBACK`: feedback-processor systematically resolving review issues
 - `COMPLETED`: Claude Code generating final reports and preparing next iteration
 
@@ -375,7 +374,7 @@ COMPLETED (Claude Code → final reporting)
   - `"Use implementation-agent to implement the user authentication API endpoints"`
 
 **Quality Assurance Phase:**
-- **Claude Code runs reviews directly** - no separate review-manager needed
+- **Claude Code runs reviews directly** - uses Task tool to run all review agents in parallel
 - Use individual review agents only when you need specific analysis
 - Examples:
   - `"Run all quality assurance reviews for iteration 1"` (Claude Code handles directly)
