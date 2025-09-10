@@ -1,6 +1,6 @@
 ---
 name: code-quality
-description: Use this agent to analyze code quality, readability, complexity, project structure, and adherence to language conventions. This agent runs comprehensive linting tools (ruff, mypy, bandit for Python) and provides detailed feedback on code improvements. Examples: <example>Context: After implementing new features in an iteration. review-manager: 'I need code quality review for the implemented features' assistant: 'I'll use the code-quality agent to analyze readability, complexity, structure and run comprehensive linting' <commentary>The code-quality agent will run all necessary linting tools and analyze the code against established conventions.</commentary></example>
+description: Use this agent to analyze code quality, readability, complexity, project structure, and adherence to language conventions. This agent runs comprehensive linting tools (ruff, mypy, bandit for Python) and provides detailed feedback on code improvements. Examples: <example>Context: After implementing new features in an iteration. user: 'I need code quality review for the implemented features' assistant: 'I'll use the code-quality agent to analyze readability, complexity, structure and run comprehensive linting' <commentary>The code-quality agent will run all necessary linting tools and analyze the code against established conventions.</commentary></example>
 model: sonnet
 color: blue
 ---

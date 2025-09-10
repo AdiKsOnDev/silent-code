@@ -1,6 +1,6 @@
 ---
 name: documentation-checker
-description: Use this agent to validate docstrings and inline comments for presence, quality, and meaningfulness. This agent ensures inline comments explain WHY code exists (not what it does) and only when it's not straightforward. Provides specific changes for feedback-processor to implement. Examples: <example>Context: After code implementation needs documentation review. review-manager: 'I need documentation review for the new code' assistant: 'I'll use the documentation-checker agent to validate docstrings and ensure meaningful inline comments' <commentary>The documentation-checker will analyze all documentation and provide specific improvement recommendations.</commentary></example>
+description: Use this agent to validate docstrings and inline comments for presence, quality, and meaningfulness. This agent ensures inline comments explain WHY code exists (not what it does) and only when it's not straightforward. Provides specific changes for feedback-processor to implement. Examples: <example>Context: After code implementation needs documentation review. user: 'I need documentation review for the new code' assistant: 'I'll use the documentation-checker agent to validate docstrings and ensure meaningful inline comments' <commentary>The documentation-checker will analyze all documentation and provide specific improvement recommendations.</commentary></example>
 tools: Bash, Glob, Grep, Read, WebFetch, TodoWrite, WebSearch, BashOutput, KillBash
 model: sonnet
 color: purple

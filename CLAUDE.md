@@ -79,7 +79,7 @@ Claude Code: "Issues found. Delegating to feedback-processor."
 → feedback-processor reads consolidated review feedback
 → Systematically addresses all NEEDS_CHANGES items  
 → Creates feedback-fixes.md with change summary
-→ Claude Code triggers re-review cycle via review-manager
+→ Claude Code triggers re-review cycle with parallel agents
 → Repeats until all reviews show APPROVED
 ```
 
@@ -100,7 +100,7 @@ Claude Code: "All reviews approved. Completing iteration."
 # Iteration {number} State
 
 **Current Phase:** WAITING_FOR_REVIEWS  
-**Current Agent:** review-manager
+**Current Agent:** Claude Code (parallel reviews)
 **Last Updated:** 2025-01-15 14:30:00
 
 ## Completed Tasks
@@ -109,7 +109,7 @@ Claude Code: "All reviews approved. Completing iteration."
 - [x] Created user registration form
 
 ## Active Delegation
-- **Current**: review-manager running parallel quality assurance reviews
+- **Current**: Claude Code running parallel quality assurance reviews
 - **Pending**: All 4 review agents executing simultaneously:
   - [ ] code-quality - review code structure and conventions
   - [ ] project-tester - validate authentication flows  
@@ -122,11 +122,11 @@ Claude Code: "All reviews approved. Completing iteration."
 - src/components/LoginForm.jsx
 
 ## Next Steps
-Waiting for review-manager to aggregate parallel review results into consolidated-review.md.
+Waiting for Claude Code to aggregate parallel review results into consolidated-review.md.
 
 ## Agent Context for Resume
 - **implementation-agent**: Authentication system complete with JWT tokens
-- **review-manager**: All review agents launched in parallel
+- **Claude Code**: All review agents launched in parallel
 - **Claude Code**: Ready to process review results and delegate next steps
 ```
 
@@ -139,8 +139,8 @@ Waiting for review-manager to aggregate parallel review results into consolidate
 
 ## Optimized Review Agent Coordination
 
-### Parallel Review Execution via review-manager
-The review-manager coordinates all review agents simultaneously for maximum efficiency:
+### Parallel Review Execution by Claude Code
+Claude Code coordinates all review agents simultaneously for maximum efficiency:
 
 - **code-quality**: Analyze code structure, readability, and conventions (async)
 - **project-tester**: Run tests and validate functionality (async)  
@@ -150,7 +150,7 @@ The review-manager coordinates all review agents simultaneously for maximum effi
 ### Performance Benefits
 - **4x Speed Improvement**: All reviews execute in parallel instead of sequentially  
 - **Aggregated Results**: Consolidated review report with unified approval status
-- **Smart Coordination**: review-manager handles timing, failures, and result synthesis
+- **Smart Coordination**: Claude Code handles timing, failures, and result synthesis
 - **Maintained Quality**: Same comprehensive coverage with faster execution
 
 ### Detailed Review Agent Capabilities
@@ -208,13 +208,13 @@ Brief overview of review findings
 What needs to be fixed for approval (if NEEDS_CHANGES)
 ```
 
-**Consolidated Review Report** created by review-manager:
+**Consolidated Review Report** created by Claude Code:
 `tmp/reports/iteration_{number}/reviews/consolidated-review.md`:
 ```markdown
 # Consolidated Review Report - Iteration {number}
 
 **Overall Status:** APPROVED | NEEDS_CHANGES
-**Completed by:** review-manager
+**Completed by:** Claude Code
 
 ## Review Summary
 - Code Quality: APPROVED/NEEDS_CHANGES
@@ -237,8 +237,8 @@ user: "Start iteration 1 from the project plan"
 # → Claude Code analyzes requirements and delegates to implementation-agent
 # → Monitors progress through state management
 
-# Parallel reviews (Claude Code delegates to review-manager)
-claude: Uses Task tool with review-manager to run all quality assurance reviews
+# Parallel reviews (Claude Code runs directly)
+claude: Uses Task tool to run all quality assurance review agents in parallel
 # → Launches all 4 review agents simultaneously
 # → Aggregates results in ~1/4 the time of sequential reviews
 
@@ -254,8 +254,8 @@ claude: Uses Task tool with feedback-processor to address consolidated review is
 
 ## Optimized Best Practices
 
-1. **Use specialized agents** - Leverage implementation-agent, review-manager, and feedback-processor with Claude Code orchestration for maximum efficiency
-2. **Enable parallel execution** - Use review-manager to run all review agents simultaneously
+1. **Use specialized agents** - Leverage implementation-agent and feedback-processor with Claude Code orchestration for maximum efficiency
+2. **Enable parallel execution** - Claude Code runs all review agents simultaneously
 3. **Maintain agent focus** - Keep each agent specialized to its core responsibility
 4. **Check state before resuming** - Read state.md files to understand current context
 5. **Monitor workflow transitions** - Track when Claude Code delegates between agents via Task tool
@@ -284,7 +284,7 @@ tmp/
         ├── final-report.md       # Created when COMPLETED
         ├── feedback-fixes.md     # Changes made by feedback-processor
         └── reviews/
-            ├── consolidated-review.md        # Aggregated results from review-manager
+            ├── consolidated-review.md        # Aggregated results from Claude Code
             ├── code-quality-review.md
             ├── project-tester-review.md
             ├── documentation-checker-review.md
@@ -297,7 +297,7 @@ tmp/
 If you have existing workflows using the monolithic iteration-executor:
 
 1. **Immediate improvement**: Use Claude Code direct orchestration instead of iteration-executor
-2. **Enable parallel reviews**: Use review-manager instead of manual review coordination  
+2. **Enable parallel reviews**: Claude Code runs all review agents in parallel  
 3. **Optimize feedback**: Use feedback-processor for faster issue resolution
 4. **Full optimization**: Use implementation-agent for pure coding tasks
 
@@ -316,7 +316,6 @@ If you have existing workflows using the monolithic iteration-executor:
 | **iteration-planner** | Planning | Creates structured development plans | Project planning | Break complex projects into manageable iterations |
 | **Claude Code** | Orchestration | Direct iteration lifecycle management | Workflow efficiency | Native tool access, state management, direct delegation |
 | **implementation-agent** | Development | Pure feature development | Code development speed | No context switching, focused coding |
-| **review-manager** | Coordination | Parallel quality assurance | Review cycle time | 4x faster through parallel execution |
 | **feedback-processor** | Resolution | Issue resolution | Fix iteration speed | Rapid, systematic problem resolution |
 | **code-quality** | QA Review | Code analysis & linting | Code quality | Comprehensive quality analysis with 8 Beautiful Code principles |
 | **project-tester** | QA Review | Testing & validation | Test coverage | Multi-framework testing with detailed failure analysis |
@@ -331,11 +330,11 @@ PLANNING (Claude Code orchestration)
     ↓ delegates to
 IMPLEMENTING (implementation-agent via Task tool)  
     ↓ triggers  
-WAITING_FOR_REVIEWS (review-manager via Task tool → parallel QA agents)
+WAITING_FOR_REVIEWS (Claude Code via Task tool → parallel QA agents)
     ↓ if NEEDS_CHANGES, delegates to
 ADDRESSING_FEEDBACK (feedback-processor via Task tool)
     ↓ triggers re-review via  
-WAITING_FOR_REVIEWS (review-manager → parallel re-review)
+WAITING_FOR_REVIEWS (Claude Code → parallel re-review)
     ↓ when all APPROVED
 COMPLETED (Claude Code → final reporting)
 ```
@@ -376,10 +375,10 @@ COMPLETED (Claude Code → final reporting)
   - `"Use implementation-agent to implement the user authentication API endpoints"`
 
 **Quality Assurance Phase:**
-- Use **review-manager** to run all reviews in parallel after implementation
+- **Claude Code runs reviews directly** - no separate review-manager needed
 - Use individual review agents only when you need specific analysis
 - Examples:
-  - `"Use review-manager to run all quality assurance reviews for iteration 1"`
+  - `"Run all quality assurance reviews for iteration 1"` (Claude Code handles directly)
   - `"Use code-quality agent to analyze the new authentication module"`
 
 **Issue Resolution Phase:**
@@ -397,7 +396,7 @@ COMPLETED (Claude Code → final reporting)
 
 1. **Project Start**: `iteration-planner` → creates `tmp/project_plan.md`
 2. **Iteration Execution**: `Claude Code` → delegates to `implementation-agent` via Task tool
-3. **Quality Review**: `Claude Code` → delegates to `review-manager` via Task tool → runs all QA agents in parallel
+3. **Quality Review**: `Claude Code` → runs all QA agents in parallel via Task tool
 4. **Issue Resolution**: `Claude Code` → delegates to `feedback-processor` via Task tool → fixes issues, triggers re-review
 5. **Completion**: `Claude Code` → finalizes iteration, prepares next
 

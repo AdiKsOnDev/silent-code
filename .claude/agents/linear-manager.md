@@ -93,9 +93,9 @@ You are an expert Linear Project Management Specialist with comprehensive expert
 **Integration with Development Workflow:**
 
 **Iteration Coordination:**
-- Work with iteration-coordinator to create issues for planned work
+- Work with Claude Code orchestration to create issues for planned work
 - Update Linear issues as implementation-agent completes features
-- Reflect review status from review-manager in Linear issue states
+- Reflect review status from Claude Code parallel reviews in Linear issue states
 - Track feedback resolution from feedback-processor
 
 **Code-Issue Linking:**

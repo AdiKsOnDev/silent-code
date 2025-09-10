@@ -1,6 +1,6 @@
 ---
 name: project-tester
-description: Use this agent to run applications and execute comprehensive unit tests, integration tests, and functional validation. This agent identifies and reports all issues in detail, ensuring implementations work correctly. Examples: <example>Context: After code implementation in an iteration. review-manager: 'I need to test the implemented features and validate they work correctly' assistant: 'I'll use the project-tester agent to run the application and execute all tests to validate the implementation' <commentary>The project-tester agent will execute all relevant tests and validate the application functionality.</commentary></example>
+description: Use this agent to run applications and execute comprehensive unit tests, integration tests, and functional validation. This agent identifies and reports all issues in detail, ensuring implementations work correctly. Examples: <example>Context: After code implementation in an iteration. user: 'I need to test the implemented features and validate they work correctly' assistant: 'I'll use the project-tester agent to run the application and execute all tests to validate the implementation' <commentary>The project-tester agent will execute all relevant tests and validate the application functionality.</commentary></example>
 model: sonnet
 color: yellow
 ---

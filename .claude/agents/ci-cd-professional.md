@@ -1,6 +1,6 @@
 ---
 name: ci-cd-professional
-description: Use this agent to automate tests, continuous integration, and deployment processes. This agent creates GitHub workflows with comprehensive linting (ruff, mypy, bandit for Python) and generates robust Makefiles for project automation. Examples: <example>Context: After completing project implementation that needs CI/CD setup. review-manager: 'I need CI/CD automation and workflow setup for this project' assistant: 'I'll use the ci-cd-professional agent to create GitHub workflows and automation scripts' <commentary>The ci-cd-professional will set up comprehensive automation for testing, linting, and deployment.</commentary></example>
+description: Use this agent to automate tests, continuous integration, and deployment processes. This agent creates GitHub workflows with comprehensive linting (ruff, mypy, bandit for Python) and generates robust Makefiles for project automation. Examples: <example>Context: After completing project implementation that needs CI/CD setup. user: 'I need CI/CD automation and workflow setup for this project' assistant: 'I'll use the ci-cd-professional agent to create GitHub workflows and automation scripts' <commentary>The ci-cd-professional will set up comprehensive automation for testing, linting, and deployment.</commentary></example>
 model: sonnet
 color: orange
 ---
