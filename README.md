@@ -34,37 +34,9 @@ This template provides a production-ready framework for breaking down complex so
 - **`documentation-checker`**: Validates docstrings, inline comments, and ensures meaningful documentation
 - **`ci-cd-professional`**: Creates GitHub workflows, automation scripts, and deployment pipelines
 
-### Project Management Agents
-
-- **`linear-manager`**: Manages Linear issues, projects, and workflows (optional, user-requested only)
-
 ## Prerequisites
 
-### Linear CLI Installation (Optional)
-
-To use the `linear-manager` agent for issue tracking and project management, install the Linear CLI:
-
-#### Option 1: AUR (Arch Linux)
-```bash
-# Install from AUR
-yay -S linear-cli
-# or
-paru -S linear-cli
-```
-
-#### Option 2: PyPI (All Platforms)
-```bash
-# Install from PyPI
-pip install linearator
-```
-
-#### Authentication
-After installation, authenticate with Linear:
-```bash
-linear auth login
-```
-
-**Note**: Linear integration is completely optional. The development workflow works without it, and `linear-manager` is only used when explicitly requested by the user.
+No additional dependencies required. All agents work with Claude Code's built-in tools.
 
 ## Quick Start
 
@@ -146,7 +118,6 @@ The process automatically:
 │       ├── project-tester.md         # Testing validation agent
 │       ├── documentation-checker.md  # Documentation reviewer
 │       ├── ci-cd-professional.md     # CI/CD automation specialist
-│       └── linear-manager.md         # Linear issue management (optional)
 ├── tmp/
 │   ├── project_plan.md           # Generated project plan
 │   └── reports/                  # Iteration tracking and reports
@@ -181,17 +152,6 @@ claude: "Use iteration-planner to plan implementing real-time collaboration feat
 claude: "Use iteration-planner to create a plan for migrating a monolithic application to a modern React/Node.js stack"
 ```
 
-### Linear Project Management (Optional)
-```bash
-# Create Linear issues for iteration tasks (only when requested)
-claude: "Use linear-manager to create Linear issues for iteration 2 tasks"
-
-# Update issue status based on development progress
-claude: "Use linear-manager to update issue SEN-62 to Done status"
-
-# Search and organize issues
-claude: "Use linear-manager to list all high priority issues assigned to the team"
-```
 
 ## Performance Improvements
 
@@ -240,7 +200,6 @@ This template enforces high-quality development through:
 4. **State Awareness**: Check iteration state before resuming work
 5. **Maintain Agent Focus**: Keep each agent specialized to its core responsibility
 6. **Address Feedback Systematically**: Use feedback-processor for rapid issue resolution
-7. **Linear Integration**: Use `linear-manager` only when explicitly requested for project tracking
 
 ## Customization
 
