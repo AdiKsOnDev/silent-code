@@ -39,8 +39,9 @@ tmp/reports/iteration_X/
 
 ### Phase 2: Implementation  
 1. **Use implementation-agent** with clear requirements from the plan
-2. **Update state.md** with progress and files modified
-3. **Set status to IMPLEMENTING → WAITING_FOR_REVIEWS**
+2. **Use git-history-manager** to make granular commits during implementation
+3. **Update state.md** with progress and files modified
+4. **Set status to IMPLEMENTING → WAITING_FOR_REVIEWS**
 
 ### Phase 3: Review (Parallel Execution)
 1. **Run ALL review agents simultaneously using Task tool:**
@@ -59,6 +60,7 @@ tmp/reports/iteration_X/
    - Return to Phase 3 (re-run reviews)
 
 2. **If all reviews show APPROVED:**
+   - Use git-history-manager to create final commits and version tags
    - Update state.md status to COMPLETED
    - Generate final iteration report
 
@@ -84,6 +86,7 @@ tmp/reports/iteration_X/
 - `code-quality` - For code analysis and linting
 - `project-tester` - For running tests and validation
 - `documentation-checker` - For documentation quality
+- `git-history-manager` - For maintaining clean git history with proper commits and versioning
 
 ### Conditionally Use:
 - `ci-cd-professional` - Include when:
@@ -166,9 +169,10 @@ Update `state.md` at each phase transition:
 
 ### NEVER Stop During These Steps - Execute Continuously:
 - Pre-workflow setup (determining iteration number, creating directories)
-- Implementation phase (run implementation-agent and update state.md)
+- Implementation phase (run implementation-agent, git-history-manager, and update state.md)
 - Review phase (run all review agents in parallel and aggregate results)
 - Feedback loop (use feedback-processor and re-run reviews until all approve)
+- Git history management (granular commits, versioning, tagging)
 - State updates and file management
 - Final iteration report generation
 
