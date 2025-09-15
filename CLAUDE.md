@@ -44,7 +44,7 @@ tmp/reports/iteration_X/
 4. **Set status to IMPLEMENTING → WAITING_FOR_REVIEWS**
 
 ### Phase 3: Review (IMPORTANT: Run multiple Task invocations in a SINGLE message)
-1. **Run ALL review agents simultaneously using Task tool:**
+1. **Run multiple Task invocations in a SINGLE message, to ensure that the following agents run in parallel:**
    - `Task(subagent_type="code-quality")` → saves to `CODE-QUALITY-REVIEW.md`
    - `Task(subagent_type="project-tester")` → saves to `PROJECT-TESTER-REVIEW.md`
    - `Task(subagent_type="documentation-checker")` → saves to `DOCUMENTATION-CHECKER-REVIEW.md`
