@@ -91,6 +91,34 @@ tmp/reports/iteration_X/
   - User specifically requests pipeline/automation setup
   - Project is reaching deployment phase
 
+### Development Dependencies Management:
+**CRITICAL: Install Required Tools Before Agent Execution**
+
+Before running review agents, ensure all necessary development tools are installed:
+
+**For Python Projects:**
+```bash
+pip install ruff mypy bandit
+```
+
+**For Node.js/TypeScript Projects:**
+```bash
+npm install -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin prettier
+```
+
+**For Other Languages:**
+- **Rust:** `cargo install clippy rustfmt`
+- **Go:** `go install golang.org/x/tools/cmd/goimports@latest`
+- **Java:** Ensure Maven/Gradle and checkstyle are available
+
+**Installation Strategy:**
+1. **Check project type** (package.json, requirements.txt, Cargo.toml, etc.)
+2. **Install language-specific linting tools** before running code-quality agent
+3. **Install testing frameworks** if missing before running project-tester agent
+4. **Handle installation failures gracefully** - document missing tools in review reports
+
+**Note:** The code-quality agent specifically requires ruff, mypy, and bandit for Python projects. Install these tools at the beginning of any iteration to ensure successful agent execution.
+
 ## Decision Points
 
 ### Continue Feedback Loop When:
