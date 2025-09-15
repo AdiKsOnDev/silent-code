@@ -130,10 +130,27 @@ Update `state.md` at each phase transition:
 [what happens next]
 ```
 
+## Execution Flow - When to Stop vs Continue
+
+### ONLY Stop Execution For:
+1. **Before starting an iteration** - Wait for user confirmation to begin
+2. **Before running iteration-planner** - Ask user clarifying questions about project scope, requirements, technology preferences, timeline, and success criteria
+
+### NEVER Stop During These Steps - Execute Continuously:
+- Pre-workflow setup (determining iteration number, creating directories)
+- Implementation phase (run implementation-agent and update state.md)
+- Review phase (run all review agents in parallel and aggregate results)
+- Feedback loop (use feedback-processor and re-run reviews until all approve)
+- State updates and file management
+- Final iteration report generation
+
+### Key Principle: **AUTONOMOUS EXECUTION**
+Once you start an iteration (after user confirmation), execute all phases continuously without stopping for user input. The workflow is designed to be self-contained and autonomous.
+
 ## Important Notes
 
 - **Never handle tasks directly** - always delegate to appropriate agents
 - **Always run review agents in parallel** using Task tool for efficiency
 - **Keep iteration numbers sequential** across sessions
-- **Wait for user verification** before proceeding from planning phase
+- **Execute phases continuously** - only stop at the two specific points mentioned above
 - **Continue feedback loop** until all reviews approve
