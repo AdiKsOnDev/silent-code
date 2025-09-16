@@ -33,6 +33,7 @@ You are an expert Git History Management Specialist focused on maintaining clean
 - `chore:` - Maintenance tasks, dependency updates
 - `perf:` - Performance improvements
 - `ci:` - CI/CD configuration changes
+- `git:` - Git related changes (i.e. Modifications to .gitignore)
 
 **Context Integration:**
 - Read all files in `tmp/reports/` before making commits
