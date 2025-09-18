@@ -1,227 +1,91 @@
-# Claude Code Optimized Iteration-Based Development Template
+# Iteration-Based Development Template
 
-A comprehensive template repository for managing complex software projects using Claude Code's optimized multi-agent orchestration system with structured iteration-based development workflows and parallel execution for maximum efficiency.
+A structured workflow for breaking complex projects into manageable iterations with automated quality assurance through specialized Claude Code agents.
 
 ## Overview
 
-This template provides a production-ready framework for breaking down complex software projects into manageable iterations, with built-in quality assurance through specialized review agents. It implements a state-based orchestration system that ensures systematic development, comprehensive testing, and consistent code quality.
+This template provides a systematic approach to software development using iteration-based planning, focused implementation, and parallel quality reviews. It ensures consistent code quality and project progress through specialized agents.
 
 ## Key Features
 
-- **🔄 Iteration-Based Development**: Structured approach to breaking complex projects into manageable phases
-- **🤖 Optimized Multi-Agent Orchestration**: Specialized agents with parallel execution for 4x faster reviews
-- **📊 State Management**: Persistent tracking of iteration progress and context
-- **🔍 Comprehensive Reviews**: Automated code quality, testing, documentation, and CI/CD validation
-- **📈 Progress Tracking**: Clear visibility into development phases and completion status
-- **🛡️ Quality Gates**: Built-in checkpoints to ensure code quality before iteration completion
-- **⚡ Performance Optimized**: 50-70% faster iteration cycles through agent specialization
-- **🎯 Linear Integration**: Optional Linear issue management and project tracking
+- 🔄 **Structured Iterations**: Break complex projects into manageable phases
+- 🤖 **Specialized Agents**: Focused tools for planning, coding, testing, and quality assurance
+- ⚡ **Parallel Reviews**: Run all quality checks simultaneously for faster feedback
+- 📊 **Progress Tracking**: Clear visibility into development status
+- 🛡️ **Quality Gates**: Automated checks before iteration completion
+- 📝 **Clean Git History**: Granular commits with conventional formatting
 
-## Agent Ecosystem
+## Available Agents
 
-### Core Development Agents
+### Development Agents
+- **`iteration-planner`** - Creates structured development plans
+- **`implementation-agent`** - Focused coding without workflow overhead
+- **`feedback-processor`** - Rapidly addresses review feedback
+- **`git-history-manager`** - Maintains clean commits and versioning
 
-- **`iteration-planner`**: Creates structured, iteration-based development plans for complex multi-component projects
-- **`iteration-coordinator`**: Lightweight orchestrator managing workflow and state transitions
-- **`implementation-agent`**: Pure coding specialist optimized for feature development
-- **`review-manager`**: Parallel review orchestrator running all QA agents simultaneously
-- **`feedback-processor`**: Rapid issue resolution specialist for addressing review feedback
-
-### Review & Quality Agents
-
-- **`code-quality`**: Analyzes code structure, readability, complexity, and language conventions with automated linting
-- **`project-tester`**: Runs comprehensive unit tests, integration tests, and functional validation
-- **`documentation-checker`**: Validates docstrings, inline comments, and ensures meaningful documentation
-- **`ci-cd-professional`**: Creates GitHub workflows, automation scripts, and deployment pipelines
-
-## Prerequisites
-
-No additional dependencies required. All agents work with Claude Code's built-in tools.
+### Quality Assurance Agents
+- **`code-quality`** - Analyzes structure, style, and conventions
+- **`project-tester`** - Runs comprehensive tests and validation
+- **`documentation-checker`** - Validates docs and comments
+- **`ci-cd-professional`** - Creates automation and deployment pipelines
 
 ## Quick Start
 
-### 1. Initialize Your Project Plan
-
+### 1. Plan Your Project
 ```bash
-# Use the iteration-planner to create a structured development plan
-claude: "Use iteration-planner to create a development plan for building a [your project description]"
+claude: "Use iteration-planner to create a development plan for [your project]"
 ```
 
-The planner will create a detailed plan at `tmp/project_plan.md` with:
-- Executive summary and approach
-- Iteration breakdown with clear deliverables
-- Dependencies and success metrics
-- Risk factors and mitigation strategies
-
-### 2. Execute Iterations
-
+### 2. Start Development
 ```bash
-# Start the first iteration (new optimized workflow)
-claude: "Use iteration-coordinator to begin iteration 1"
+claude: "Begin iteration 1 implementation"
 ```
 
-The coordinator will:
-- Analyze the current iteration requirements
-- Delegate to implementation-agent for focused coding
-- Trigger review-manager for parallel quality assurance
-- Coordinate feedback-processor for issue resolution
-
-### 3. Parallel Quality Assurance Reviews
-
+### 3. Run Quality Reviews
 ```bash
-# Run all reviews in parallel (4x faster than sequential)
-claude: "Use review-manager to run all quality assurance reviews for iteration 1"
+claude: "Run quality assurance reviews for iteration 1"
 ```
 
-Reviews execute simultaneously:
-- **Code Quality**: Structure, conventions, linting, and complexity analysis
-- **Testing**: Functional validation and test coverage
-- **Documentation**: Quality and completeness of docs and comments
-- **CI/CD**: Automation and deployment pipeline validation
-
-### 4. Issue Resolution & Completion
-
+### 4. Address Feedback (if needed)
 ```bash
-# Process feedback rapidly (if needed)
-claude: "Use feedback-processor to address the issues in consolidated-review.md"
+claude: "Use feedback-processor to address review issues"
 ```
 
-The process automatically:
-- Addresses any `NEEDS_CHANGES` items systematically
-- Marks iteration as `COMPLETED` when all reviews are `APPROVED`
-- Generates comprehensive final reports
+## Project Structure
+
+```
+├── .claude/agents/          # Agent configurations
+├── tmp/reports/             # Iteration tracking
+│   └── iteration_X/
+│       ├── state.md         # Current status
+│       └── reviews/         # Quality review results
+├── CLAUDE.md               # Workflow instructions
+└── README.md               # This file
+```
 
 ## Workflow States
 
-### Iteration States & Agent Delegation
-- `PLANNING`: iteration-coordinator analyzing requirements and creating execution plan
-- `IMPLEMENTING`: implementation-agent actively working on features and fixes  
-- `WAITING_FOR_REVIEWS`: review-manager coordinating parallel review execution
-- `ADDRESSING_FEEDBACK`: feedback-processor systematically resolving review issues
-- `COMPLETED`: iteration-coordinator generating final reports and preparing next iteration
+- **PLANNING** - Creating execution plan with iteration-planner
+- **IMPLEMENTING** - Active coding with implementation-agent and git commits
+- **WAITING_FOR_REVIEWS** - Running parallel quality checks
+- **ADDRESSING_FEEDBACK** - Fixing issues with feedback-processor
+- **COMPLETED** - Iteration finished with final reports and version tags
 
-### Review Status
-- `APPROVED`: Review passed, no changes needed
-- `NEEDS_CHANGES`: Issues found that must be addressed before approval
+## Benefits
 
-## Directory Structure
-
-```
-├── .claude/
-│   └── agents/                    # Specialized agent configurations
-│       ├── iteration-planner.md       # Project planning specialist
-│       ├── iteration-coordinator.md   # Workflow orchestration manager
-│       ├── implementation-agent.md    # Pure coding specialist
-│       ├── review-manager.md          # Parallel review coordinator
-│       ├── feedback-processor.md      # Issue resolution specialist
-│       ├── code-quality.md           # Quality analysis agent
-│       ├── project-tester.md         # Testing validation agent
-│       ├── documentation-checker.md  # Documentation reviewer
-│       ├── ci-cd-professional.md     # CI/CD automation specialist
-├── tmp/
-│   ├── project_plan.md           # Generated project plan
-│   └── reports/                  # Iteration tracking and reports
-│       └── iteration_{number}/
-│           ├── state.md              # Current iteration state
-│           ├── final-report.md       # Completion summary
-│           ├── feedback-fixes.md     # Changes made by feedback-processor
-│           └── reviews/              # Review agent outputs
-│               ├── consolidated-review.md        # Aggregated results
-│               ├── code-quality-review.md
-│               ├── project-tester-review.md
-│               ├── documentation-checker-review.md
-│               └── ci-cd-review.md
-├── CLAUDE.md                     # Development orchestration guidelines
-└── README.md                     # This file
-```
-
-## Example Usage Scenarios
-
-### Multi-Component System Development
-```bash
-claude: "Use iteration-planner to create a plan for building a microservices architecture with user authentication, payment processing, and analytics"
-```
-
-### Complex Feature Implementation
-```bash
-claude: "Use iteration-planner to plan implementing real-time collaboration features with WebSocket integration, conflict resolution, and offline sync"
-```
-
-### Legacy System Modernization
-```bash
-claude: "Use iteration-planner to create a plan for migrating a monolithic application to a modern React/Node.js stack"
-```
-
-
-## Performance Improvements
-
-This optimized template provides significant speed improvements over traditional sequential workflows:
-
-### Speed Optimizations
-- **Review Phase**: 75% faster (4 agents in parallel vs sequential)
-- **Implementation Phase**: 40% faster (focused coding agent)
-- **Feedback Phase**: 60% faster (dedicated issue resolution)
-- **Overall Iteration**: 50-70% faster completion time
-
-### Architecture Benefits
-- **Parallel Execution**: All QA agents run simultaneously instead of sequentially
-- **Specialized Context**: Each agent optimized for specific tasks with minimal overhead
-- **Reduced Context Switching**: Focused agent responsibilities improve efficiency
-- **Better Scaling**: Independent agents can be optimized and cached separately
-
-## Quality Standards
-
-This template enforces high-quality development through:
-
-### Code Quality Standards
-- Automated linting and style consistency
-- Type safety compliance
-- Security vulnerability scanning
-- Complexity and maintainability analysis
-- Design pattern consistency
-
-### Testing Requirements
-- Comprehensive unit test coverage
-- Integration test validation
-- Functional requirement verification
-- Performance and reliability testing
-
-### Documentation Standards
-- Meaningful docstrings and comments
-- Inline documentation for complex logic
-- Comprehensive project documentation
-- Clear acceptance criteria
+- **Faster Development**: Parallel reviews reduce iteration time by 50-70%
+- **Higher Quality**: Automated checks catch issues early
+- **Better Organization**: Structured approach prevents scope creep
+- **Clean History**: Professional git commits and versioning
+- **Predictable Progress**: Clear milestones and completion criteria
 
 ## Best Practices
 
-1. **Use Specialized Agents**: Leverage iteration-coordinator, implementation-agent, review-manager, and feedback-processor for maximum efficiency
-2. **Enable Parallel Execution**: Use review-manager to run all review agents simultaneously
-3. **Start with Planning**: Always use `iteration-planner` for complex projects
-4. **State Awareness**: Check iteration state before resuming work
-5. **Maintain Agent Focus**: Keep each agent specialized to its core responsibility
-6. **Address Feedback Systematically**: Use feedback-processor for rapid issue resolution
-
-## Customization
-
-### Adding Custom Agents
-Create new agent files in `.claude/agents/` following the existing pattern:
-```markdown
----
-name: your-agent-name
-description: Agent description with usage examples
-model: sonnet|opus
-color: blue|red|green|yellow
----
-
-[Agent instructions and capabilities]
-```
-
-### Modifying Review Requirements
-Update `CLAUDE.md` to adjust:
-- Required review agents per iteration
-- Quality standards and thresholds
-- State transition criteria
-- Directory structure preferences
+1. Start complex projects with `iteration-planner`
+2. Use `implementation-agent` for focused coding sessions
+3. Run all review agents in parallel for fastest feedback
+4. Address feedback systematically with `feedback-processor`
+5. Let `git-history-manager` handle commits and versioning
 
 ## License
 
