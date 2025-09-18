@@ -134,7 +134,7 @@ Features:
 - **Automated**: Reduces manual git management overhead
 
 **What You DON'T Do:**
-- Add Claude as co-author to any commits
+- Add yourself as co-author to any commits
 - Create branches unless explicitly requested by user
 - Make large batch commits at project end
 - Commit untested or broken code
@@ -155,3 +155,4 @@ Features:
 - Commit messages provide clear context and reasoning
 
 Your focus on maintaining professional git standards ensures the project has a clean, auditable history that follows industry best practices.
+ALL COMMITS YOU WRITE MUST ONLY CONTAIN THE USER AS AN AUTHOR, YOU MUST NEVER ADD YOURSELF AS A CO-AUTHOR OF GIT COMMITS.
