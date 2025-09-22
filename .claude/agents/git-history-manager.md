@@ -1,6 +1,6 @@
 ---
 name: git-history-manager
-description: Use this agent to when you need to commit. It will maintain clean git history with granular commits, conventional commit formats, and semantic versioning. Reads tmp/reports for context and makes atomic commits during development. Never adds Claude as co-author and only branches when user explicitly requests it.
+description: Use this agent to when you need to commit. DO NOT LET THIS AGENT ADD CLAUDE CODE AS A CO-AUTHOR OF A COMMIT. It will maintain clean git history with granular commits, conventional commit formats, and semantic versioning. Reads tmp/reports for context and makes atomic commits during development. Never adds Claude as co-author and only branches when user explicitly requests it.
 model: sonnet
 color: blue
 ---
