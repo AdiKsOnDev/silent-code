@@ -77,6 +77,9 @@ tmp/reports/iteration_X/
 **Conditional Files:**
 - `tmp/reports/iteration_X/reviews/CI-CD-PROFESSIONAL-REVIEW.md` - Only when CI/CD is relevant
 
+**Post-Iteration Maintenance Files:**
+- `tmp/reports/bugs/PATCH_NOTES.md` - Bug fixes and patches applied after iterations (created by bug-fixer agent)
+
 ## Agent Usage Rules
 
 ### Always Use These Agents:
@@ -93,6 +96,25 @@ tmp/reports/iteration_X/
   - Project already has CI/CD pipelines that need updates
   - User specifically requests pipeline/automation setup
   - Project is reaching deployment phase
+
+### Post-Iteration Maintenance Agents:
+**IMPORTANT: These agents are NOT part of the iteration workflow. Use ONLY when user explicitly requests bug fixes, debugging, or issue resolution AFTER iterations are complete.**
+
+- `bug-fixer` - Use when:
+  - User requests to "fix a bug", "debug something", or "resolve an issue"
+  - User reports errors, crashes, or unexpected behavior in completed code
+  - User discovers shortcomings or issues post-iteration
+  - **NEVER use during iteration workflow** - this is strictly for maintenance
+
+**Bug-Fixer Agent Characteristics:**
+- Handles ALL types of bugs (logic errors, crashes, performance, UI, security, integration)
+- Documents fixes in `tmp/reports/bugs/PATCH_NOTES.md` (creates directory if needed)
+- Provides root cause analysis with code snippets and verification steps
+- **Does NOT make git commits** - leaves that to manual handling
+- **Does NOT add inline comments** - only documents in PATCH_NOTES.md
+- **Does NOT create Linear issues** unless explicitly requested
+- Independent of feedback-processor (which handles iteration review feedback)
+- Provides verification steps; testing is left to project-tester called separately
 
 ### Development Dependencies Management:
 **CRITICAL: Install Required Tools Before Agent Execution**
@@ -186,3 +208,7 @@ Once you start an iteration (after user confirmation), execute all phases contin
 - **Keep iteration numbers sequential** across sessions
 - **Execute phases continuously** - only stop at the two specific points mentioned above
 - **Continue feedback loop** until all reviews approve
+- **Bug-fixer vs Feedback-processor distinction:**
+  - Use `feedback-processor` during iterations to address review feedback (ADDRESSING_FEEDBACK phase)
+  - Use `bug-fixer` ONLY for post-iteration maintenance when user reports bugs after completion
+  - These agents serve different purposes and should never be confused or used interchangeably
