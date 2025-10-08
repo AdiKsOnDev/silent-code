@@ -70,6 +70,7 @@ Traditional development often suffers from:
   - Creates patch notes in `tmp/reports/bugs/PATCH_NOTES.md`
 
 ### Utility Agents
+- **`documentation-manager`** → Manages project-level documentation (README, CONTRIBUTING, CHANGELOG) - creates, updates, ensures accuracy
 - **`linear-manager`** → Manages Linear issues, projects, and milestones (requires [linear-cli installation](https://github.com/AdiKsOnDev/linear-cli))
 
 ## Quick Start
@@ -126,6 +127,7 @@ Once iteration completes:
 │   │   ├── comment-quality.md
 │   │   ├── ci-cd-professional.md
 │   │   ├── bug-fixer.md
+│   │   ├── documentation-manager.md
 │   │   └── linear-manager.md
 │   └── settings.json                     # Claude Code settings
 ├── tmp/reports/                          # Iteration tracking
