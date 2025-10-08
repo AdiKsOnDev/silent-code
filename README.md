@@ -60,7 +60,7 @@ Traditional development often suffers from:
 ### Quality Assurance Agents
 - **`code-quality`** → Analyzes code structure, style, complexity, and language conventions (runs ruff, mypy, bandit for Python)
 - **`project-tester`** → Runs comprehensive tests and validation (unit, integration, functional)
-- **`documentation-checker`** → Validates docstrings and inline comments for quality and meaningfulness
+- **`comment-quality`** → Validates docstrings and inline comments for quality and meaningfulness
 - **`ci-cd-professional`** → Creates automation workflows and deployment pipelines (GitHub Actions, Makefiles)
 
 ### Post-Iteration Maintenance
@@ -123,7 +123,7 @@ Once iteration completes:
 │   │   ├── git-history-manager.md
 │   │   ├── code-quality.md
 │   │   ├── project-tester.md
-│   │   ├── documentation-checker.md
+│   │   ├── comment-quality.md
 │   │   ├── ci-cd-professional.md
 │   │   ├── bug-fixer.md
 │   │   └── linear-manager.md
@@ -134,7 +134,7 @@ Once iteration completes:
 │   │   ├── reviews/                      # Quality review results
 │   │   │   ├── CODE-QUALITY-REVIEW.md
 │   │   │   ├── PROJECT-TESTER-REVIEW.md
-│   │   │   ├── DOCUMENTATION-CHECKER-REVIEW.md
+│   │   │   ├── COMMENT-QUALITY-REVIEW.md
 │   │   │   ├── CI-CD-PROFESSIONAL-REVIEW.md (if applicable)
 │   │   │   └── CONSOLIDATED-REVIEW.md
 │   │   └── FEEDBACK-FIXES.md             # Summary of fixes made

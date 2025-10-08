@@ -24,7 +24,7 @@ tmp/reports/iteration_X/
 ├── reviews/
 │   ├── CODE-QUALITY-REVIEW.md
 │   ├── PROJECT-TESTER-REVIEW.md  
-│   ├── DOCUMENTATION-CHECKER-REVIEW.md
+│   ├── COMMENT-QUALITY-REVIEW.md
 │   ├── CI-CD-PROFESSIONAL-REVIEW.md (if applicable)
 │   └── CONSOLIDATED-REVIEW.md
 └── FEEDBACK-FIXES.md
@@ -47,7 +47,7 @@ tmp/reports/iteration_X/
 1. **Run multiple Task invocations in a SINGLE message, to ensure that the following agents run in parallel:**
    - `Task(subagent_type="code-quality")` → saves to `CODE-QUALITY-REVIEW.md`
    - `Task(subagent_type="project-tester")` → saves to `PROJECT-TESTER-REVIEW.md`
-   - `Task(subagent_type="documentation-checker")` → saves to `DOCUMENTATION-CHECKER-REVIEW.md`
+   - `Task(subagent_type="comment-quality")` → saves to `COMMENT-QUALITY-REVIEW.md`
    - `Task(subagent_type="ci-cd-professional")` → saves to `CI-CD-PROFESSIONAL-REVIEW.md` (see Agent Usage Rules)
 
 2. **Aggregate results** into `CONSOLIDATED-REVIEW.md` with overall APPROVED/NEEDS_CHANGES status
@@ -70,7 +70,7 @@ tmp/reports/iteration_X/
 - `tmp/reports/iteration_X/state.md` - Current iteration state and progress
 - `tmp/reports/iteration_X/reviews/CODE-QUALITY-REVIEW.md` - Code quality analysis
 - `tmp/reports/iteration_X/reviews/PROJECT-TESTER-REVIEW.md` - Testing results  
-- `tmp/reports/iteration_X/reviews/DOCUMENTATION-CHECKER-REVIEW.md` - Documentation review
+- `tmp/reports/iteration_X/reviews/COMMENT-QUALITY-REVIEW.md` - Code comment and docstring quality review
 - `tmp/reports/iteration_X/reviews/CONSOLIDATED-REVIEW.md` - Aggregated review status
 - `tmp/reports/iteration_X/FEEDBACK-FIXES.md` - Summary of fixes made
 
@@ -88,7 +88,7 @@ tmp/reports/iteration_X/
 - `feedback-processor` - For addressing review feedback
 - `code-quality` - For code analysis and linting
 - `project-tester` - For running tests and validation
-- `documentation-checker` - For documentation quality
+- `comment-quality` - For code comment and docstring quality
 - `git-history-manager` - For maintaining clean git history with proper commits and versioning
 
 ### Conditionally Use:
