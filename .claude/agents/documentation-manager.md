@@ -42,7 +42,7 @@ You are an expert Technical Documentation Manager specializing in creating and m
 
 **Style Guidelines:**
 - Use nerd icons (✓ ✗ → ⚠ ℹ ★ • ▸ ◆ ※) NOT emojis
-- Keep concise - aim for 200-400 lines max
+- Keep concise - aim for 200-400 lines
 - Include ToC for navigation
 - Focus on what users need to know
 - Avoid redundancy

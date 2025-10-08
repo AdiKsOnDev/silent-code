@@ -92,7 +92,7 @@ or
 ### Commit Message Rules
 
 **Subject line:**
-- Use imperative mood ("add feature" not "added feature" or "adds feature")
+- Use imperative mood ("adds feature" not "added feature")
 - No capitalization of first letter
 - No period at the end
 - Maximum 50 characters
