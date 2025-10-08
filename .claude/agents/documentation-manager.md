@@ -94,7 +94,7 @@ Include conventional branch naming:
 - Examples with good naming patterns
 
 **Style Guidelines:**
-- No emojis - use nerd icons (◆, ★, ✓, etc.)
+- No emojis
 - Clear, actionable guidance
 - Concrete examples
 - Aim for 150-300 lines
@@ -184,7 +184,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
    - Create clear, consistent scope names
 
 ### Step 3: Existing Documentation Review
-**For each existing file, ULTRA THINK about:**
+**For each existing file, ULTRATHINK about:**
 
 1. **Accuracy:**
    - Does it match current codebase state?
