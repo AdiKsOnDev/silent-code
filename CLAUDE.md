@@ -1,8 +1,25 @@
-# Iteration-Based Development Workflow
+# Universal Agent System with Iteration Workflow
 
-## Core Workflow Overview
+## Overview
 
-This workflow is for structured iteration-based development. Use when:
+This system provides universal agents that work standalone or as part of structured iteration-based development. Each agent is designed around **what it analyzes** (artifact-centric) rather than **when it runs** (process-centric), making them reliable and reusable in any context.
+
+## Agent Operating Modes
+
+**All agents support two modes:**
+1. **Standalone Mode** - Agents work independently with just git + source code
+2. **Iteration Workflow Mode** - Agents integrate seamlessly into structured development cycles
+
+**How agents adapt:**
+- Auto-detect environment (project type, language, existing structure)
+- Discover context from git history and filesystem
+- Work with partial tooling (graceful degradation)
+- Generate appropriate output paths automatically
+- Produce self-contained, complete reports
+
+## Iteration-Based Development Workflow
+
+Use iteration workflow when:
 - User requests iteration-related work ("start iteration X", "begin next iteration")
 - User asks to make a project plan (ask clarifying questions first)
 - Working on multi-phase projects requiring systematic development
@@ -80,71 +97,190 @@ tmp/reports/iteration_X/
 **Post-Iteration Maintenance Files:**
 - `tmp/reports/bugs/PATCH_NOTES.md` - Bug fixes and patches applied after iterations (created by bug-fixer agent)
 
-## Agent Usage Rules
+## Agent Catalog & Usage
 
-### Always Use These Agents:
-- `iteration-planner` - For creating structured development plans
-- `implementation-agent` - For all coding work  
-- `feedback-processor` - For addressing review feedback
-- `code-quality` - For code analysis and linting
-- `project-tester` - For running tests and validation
-- `comment-quality` - For code comment and docstring quality
-- `git-history-manager` - For maintaining clean git history with proper commits and versioning
+**All agents are universal** - they work standalone or within iteration workflow. Each agent performs environment discovery to adapt to your project automatically.
 
-### Conditionally Use:
-- `ci-cd-professional` - Include when:
-  - Project already has CI/CD pipelines that need updates
-  - User specifically requests pipeline/automation setup
-  - Project is reaching deployment phase
+### Core Development Agents
 
-### Post-Iteration Maintenance Agents:
-**IMPORTANT: These agents are NOT part of the iteration workflow. Use ONLY when user explicitly requests bug fixes, debugging, or issue resolution AFTER iterations are complete.**
+**`implementation-agent`** - Pure coding specialist
+- **What it analyzes:** Feature requirements and source code to implement
+- **Standalone use:** Direct feature implementation, bug fixes, refactoring
+- **Iteration use:** Implementation phase coding work
+- **Requirements:** Git repo + source code
+- **Output:** Working code following project conventions
 
-- `bug-fixer` - Use when:
-  - User requests to "fix a bug", "debug something", or "resolve an issue"
-  - User reports errors, crashes, or unexpected behavior in completed code
-  - User discovers shortcomings or issues post-iteration
-  - **NEVER use during iteration workflow** - this is strictly for maintenance
+**`code-quality`** - Code analysis and linting expert
+- **What it analyzes:** Source code quality, style, complexity, security
+- **Standalone use:** Ad-hoc code review, pre-commit checks
+- **Iteration use:** Review phase quality assurance
+- **Requirements:** Git repo + source code (tools optional - graceful degradation)
+- **Output:** `CODE-QUALITY-REVIEW.md` (auto-detects save location)
 
-**Bug-Fixer Agent Characteristics:**
-- Handles ALL types of bugs (logic errors, crashes, performance, UI, security, integration)
-- Documents fixes in `tmp/reports/bugs/PATCH_NOTES.md` (creates directory if needed)
-- Provides root cause analysis with code snippets and verification steps
-- **Does NOT make git commits** - leaves that to manual handling
-- **Does NOT add inline comments** - only documents in PATCH_NOTES.md
-- **Does NOT create Linear issues** unless explicitly requested
-- Independent of feedback-processor (which handles iteration review feedback)
-- Provides verification steps; testing is left to project-tester called separately
+**`project-tester`** - Testing and validation specialist
+- **What it analyzes:** Test results, coverage, functionality
+- **Standalone use:** Quick test runs, debugging test failures
+- **Iteration use:** Review phase testing validation
+- **Requirements:** Git repo + source code (test framework optional)
+- **Output:** `PROJECT-TESTER-REVIEW.md` (auto-detects save location)
 
-### Development Dependencies Management:
-**CRITICAL: Install Required Tools Before Agent Execution**
+**`comment-quality`** - Code documentation analyst
+- **What it analyzes:** Docstrings and inline comments (NOT project docs)
+- **Standalone use:** Documentation audit, pre-commit doc checks
+- **Iteration use:** Review phase documentation validation
+- **Requirements:** Git repo + source code
+- **Output:** `COMMENT-QUALITY-REVIEW.md` (auto-detects save location)
 
-Before running review agents, ensure all necessary development tools are installed:
+**`git-history-manager`** - Git operations specialist
+- **What it manages:** Commits, branches, tags, semantic versioning
+- **Standalone use:** Creating commits, managing branches
+- **Iteration use:** Granular commits during implementation + final versioning
+- **Requirements:** Git repo + CONTRIBUTING.md (for commit scopes)
+- **Output:** Clean git history with conventional commits
 
-**For Python Projects:**
+### Feedback & Resolution Agents
+
+**`feedback-processor`** - Issue resolution specialist
+- **What it analyzes:** Review feedback from any source
+- **Standalone use:** Fix issues from manual feedback or tool output
+- **Iteration use:** ADDRESSING_FEEDBACK phase - fix review issues
+- **Requirements:** Git repo + feedback (review reports, user instructions, or tool output)
+- **Output:** `FEEDBACK-FIXES.md` (auto-detects save location)
+
+**`bug-fixer`** - Bug diagnosis and fixing specialist
+- **What it analyzes:** Bug reports and software defects
+- **Standalone use:** Fix any bug at any time (primary use case)
+- **Iteration use:** Generally NOT used in iterations (use feedback-processor instead)
+- **Requirements:** Git repo + bug description
+- **Output:** `tmp/reports/bugs/PATCH_NOTES.md` with root cause analysis
+- **IMPORTANT:** Independent of iteration workflow - use for maintenance and debugging
+
+**Bug-fixer vs Feedback-processor distinction:**
+- Use `feedback-processor` during iterations to address review feedback (ADDRESSING_FEEDBACK phase)
+- Use `bug-fixer` for standalone bug fixes when user reports issues outside iteration context
+- `bug-fixer` documents in PATCH_NOTES.md, provides verification steps, does NOT commit
+- `feedback-processor` works from review reports, fixes systematically, enables re-review
+
+### Planning & Automation Agents
+
+**`iteration-planner`** - Development planning specialist
+- **What it analyzes:** Project requirements and creates iteration plans
+- **Standalone use:** N/A (workflow-specific agent)
+- **Iteration use:** Phase 1 planning
+- **Requirements:** Project description, scope, requirements
+- **Output:** Structured iteration plan
+
+**`ci-cd-professional`** - DevOps automation specialist
+- **What it analyzes:** Project automation needs and CI/CD requirements
+- **Standalone use:** Setup GitHub workflows, Makefile, automation anytime
+- **Iteration use:** Optional - include when CI/CD changes needed
+- **Requirements:** Git repo + source code
+- **Output:** `.github/workflows/`, `Makefile`, `CI-CD-PROFESSIONAL-REVIEW.md`
+
+**`documentation-manager`** - Project documentation specialist
+- **What it analyzes:** Project-level documentation (README, CONTRIBUTING, CHANGELOG)
+- **Standalone use:** Create/update project documentation anytime
+- **Iteration use:** Optional - include when docs need updating
+- **Requirements:** Git repo + codebase for analysis
+- **Output:** Updated README.md, CONTRIBUTING.md, CHANGELOG.md
+
+### Development Dependencies Management
+
+**Agents use graceful tool degradation** - they work with partial tooling and provide installation guidance.
+
+**Optimal tooling by language:**
+
+**Python:**
 ```bash
-pip install ruff mypy bandit
+pip install ruff mypy bandit pytest pytest-cov
 ```
 
-**For Node.js/TypeScript Projects:**
+**Node.js/TypeScript:**
 ```bash
-npm install -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin prettier
+npm install -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin prettier jest
 ```
 
-**For Other Languages:**
-- **Rust:** `cargo install clippy rustfmt`
+**Other Languages:**
+- **Rust:** `cargo install clippy rustfmt` (usually pre-installed with Rust)
 - **Go:** `go install golang.org/x/tools/cmd/goimports@latest`
 - **Java:** Ensure Maven/Gradle and checkstyle are available
 
-**Installation Strategy:**
-1. **Check project type** (package.json, requirements.txt, Cargo.toml, etc.)
-2. **Install language-specific linting tools** before running code-quality agent
-3. **Install testing frameworks** if missing before running project-tester agent
-4. **Handle installation failures gracefully** - document missing tools in review reports
+**How agents handle missing tools:**
+1. **Auto-detect** available tools in environment
+2. **Work with what exists** - provide partial analysis if some tools missing
+3. **Document gaps** - report which tools are missing and how to install them
+4. **Provide installation commands** - include exact commands in review reports
+5. **Never fail silently** - always communicate tool availability status
 
-**Note:** The code-quality agent specifically requires ruff, mypy, and bandit for Python projects. Install these tools at the beginning of any iteration to ensure successful agent execution.
+**Example:** code-quality agent without ruff will:
+- ✓ Still analyze code structure and complexity manually
+- ✓ Document that ruff is missing
+- ✓ Provide `pip install ruff` command in report
+- ✓ Mark review as NEEDS_CHANGES with tool installation as first step
 
-## Decision Points
+## Standalone Agent Usage Examples
+
+**All agents work independently outside the iteration workflow:**
+
+### Quick Code Review
+```
+User: "Review the code quality in src/auth/"
+→ Use code-quality agent
+→ Output: tmp/reviews/YYYYMMDD_HHMMSS/CODE-QUALITY-REVIEW.md
+```
+
+### Run Tests
+```
+User: "Run the test suite and show me results"
+→ Use project-tester agent
+→ Output: tmp/reviews/YYYYMMDD_HHMMSS/PROJECT-TESTER-REVIEW.md
+```
+
+### Fix a Bug
+```
+User: "There's a bug in login - users can't authenticate"
+→ Use bug-fixer agent (NOT feedback-processor)
+→ Output: tmp/reports/bugs/PATCH_NOTES.md with fix details
+```
+
+### Check Documentation
+```
+User: "Review comments and docstrings in the codebase"
+→ Use comment-quality agent
+→ Output: tmp/reviews/YYYYMMDD_HHMMSS/COMMENT-QUALITY-REVIEW.md
+```
+
+### Setup CI/CD
+```
+User: "Setup GitHub workflows and Makefile"
+→ Use ci-cd-professional agent
+→ Output: .github/workflows/, Makefile, CI-CD-PROFESSIONAL-REVIEW.md
+```
+
+### Implement Feature
+```
+User: "Add rate limiting to the API endpoints"
+→ Use implementation-agent
+→ Output: Working code in source files
+```
+
+### Make Commits
+```
+User: "Commit these changes with proper conventional commits"
+→ Use git-history-manager agent
+→ Output: Clean git history with semantic commits
+```
+
+### Address Feedback
+```
+User: "Fix the 5 issues identified in the last review"
+→ Use feedback-processor agent
+→ Output: Fixed code + FEEDBACK-FIXES.md summary
+```
+
+**Key principle:** Every agent works independently with just git + source code + their specific requirements.
+
+## Decision Points (Iteration Workflow)
 
 ### Continue Feedback Loop When:
 - Any review agent returns NEEDS_CHANGES status
@@ -203,12 +339,28 @@ Once you start an iteration (after user confirmation), execute all phases contin
 
 ## Important Notes
 
-- **Never handle tasks directly** - always delegate to appropriate agents
-- **Always run review agents in parallel** using Task tool for efficiency
-- **Keep iteration numbers sequential** across sessions
-- **Execute phases continuously** - only stop at the two specific points mentioned above
-- **Continue feedback loop** until all reviews approve
-- **Bug-fixer vs Feedback-processor distinction:**
-  - Use `feedback-processor` during iterations to address review feedback (ADDRESSING_FEEDBACK phase)
-  - Use `bug-fixer` ONLY for post-iteration maintenance when user reports bugs after completion
-  - These agents serve different purposes and should never be confused or used interchangeably
+### Universal Agent Principles
+- **Agents are artifacts, not processes** - Each agent is designed around WHAT it analyzes, not WHEN it runs
+- **Always delegate to agents** - Never handle tasks directly, use specialized agents
+- **Agents auto-discover context** - They detect project type, language, tools, and mode automatically
+- **Graceful degradation** - Agents work with partial tooling and provide clear guidance
+- **Self-contained reports** - Each agent produces complete, standalone output
+- **No assumptions** - Agents don't assume iteration workflow, other agents, or specific tools exist
+
+### Iteration Workflow Specifics
+- **Run review agents in parallel** - Use multiple Task invocations in a SINGLE message for efficiency
+- **Keep iteration numbers sequential** - Maintain consistent numbering across sessions
+- **Execute phases continuously** - Only stop at the two specified points (before start, before planning)
+- **Continue feedback loop** - Repeat until all reviews show APPROVED status
+
+### Agent Selection
+- **Bug-fixer vs Feedback-processor:**
+  - Use `feedback-processor` during iterations (ADDRESSING_FEEDBACK phase) to fix review issues
+  - Use `bug-fixer` for standalone bug fixes outside iteration context
+  - `bug-fixer` is maintenance-focused, `feedback-processor` is review-focused
+
+- **When to use standalone agents:**
+  - User asks for specific analysis (code review, testing, documentation check)
+  - User reports bugs or issues outside iteration workflow
+  - Need quick feedback without full iteration cycle
+  - Setting up project infrastructure (CI/CD, documentation)
