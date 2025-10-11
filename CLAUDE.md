@@ -138,6 +138,32 @@ tmp/reports/iteration_X/
 - **Requirements:** Git repo + CONTRIBUTING.md (for commit scopes)
 - **Output:** Clean git history with conventional commits
 
+### Test Writing Agents
+
+**`e2e-test-writer`** - End-to-end test creation specialist
+- **What it creates:** Complete user workflow tests that simulate real user behavior
+- **Standalone use:** Create E2E tests for critical user journeys anytime
+- **Iteration use:** Add E2E tests during implementation or review phase
+- **Requirements:** Git repo + source code + understanding of user workflows
+- **Output:** E2E test files (tests/e2e/) using project's E2E framework (Playwright, Cypress, Selenium)
+- **Focus:** Quality over coverage - meaningful workflows, not synthetic scenarios
+
+**`unit-test-writer`** - Unit test creation specialist
+- **What it creates:** Granular, isolated tests for individual functions/methods/classes
+- **Standalone use:** Create unit tests for specific code units anytime
+- **Iteration use:** Add unit tests during implementation or review phase
+- **Requirements:** Git repo + source code to test
+- **Output:** Unit test files with proper mocking and isolation
+- **Focus:** One unit at a time, complete isolation, quality over coverage
+
+**`integration-test-writer`** - Integration test creation specialist
+- **What it creates:** Tests that validate how multiple components work together
+- **Standalone use:** Create integration tests for component interactions anytime
+- **Iteration use:** Add integration tests during implementation or review phase
+- **Requirements:** Git repo + source code + test infrastructure (databases, etc.)
+- **Output:** Integration test files with real dependencies (tests/integration/)
+- **Focus:** Multi-component interactions, data flow validation, transaction integrity
+
 ### Feedback & Resolution Agents
 
 **`feedback-processor`** - Issue resolution specialist
@@ -276,6 +302,21 @@ User: "Commit these changes with proper conventional commits"
 User: "Fix the 5 issues identified in the last review"
 → Use feedback-processor agent
 → Output: Fixed code + FEEDBACK-FIXES.md summary
+```
+
+### Create Tests
+```
+User: "Create E2E tests for the checkout flow"
+→ Use e2e-test-writer agent
+→ Output: E2E test files in tests/e2e/
+
+User: "Write unit tests for the UserService class"
+→ Use unit-test-writer agent
+→ Output: Unit test files with mocked dependencies
+
+User: "Create integration tests for API endpoints with database"
+→ Use integration-test-writer agent
+→ Output: Integration test files with real test database
 ```
 
 **Key principle:** Every agent works independently with just git + source code + their specific requirements.

@@ -116,6 +116,29 @@ All agents work **standalone** (quick tasks) or **in workflow** (complex project
 - **Workflow:** Granular commits during implementation + final versioning
 - **Output:** Clean git history with conventional commits
 
+### Test Writing Agents
+
+**`e2e-test-writer`** - End-to-end test creation specialist
+- **What it creates:** Complete user workflow tests (login → action → result)
+- **Standalone:** Create E2E tests for critical user journeys
+- **Workflow:** Add E2E tests during implementation phase
+- **Output:** E2E test files using Playwright, Cypress, Selenium, etc.
+- **Focus:** Real user workflows, quality over coverage
+
+**`unit-test-writer`** - Unit test creation specialist
+- **What it creates:** Isolated tests for individual functions/methods/classes
+- **Standalone:** Create unit tests for specific code units
+- **Workflow:** Add unit tests during implementation phase
+- **Output:** Unit test files with proper mocking
+- **Focus:** One unit at a time, complete isolation, meaningful tests
+
+**`integration-test-writer`** - Integration test creation specialist
+- **What it creates:** Tests validating multi-component interactions
+- **Standalone:** Create integration tests for component boundaries
+- **Workflow:** Add integration tests during implementation phase
+- **Output:** Integration test files with real dependencies (test DB, file system)
+- **Focus:** Data flow, transaction integrity, component communication
+
 ### Feedback & Resolution Agents
 
 **`feedback-processor`** - Issue resolution specialist
@@ -196,6 +219,22 @@ claude: "Setup GitHub workflows and Makefile for this project"
 claude: "Review the docstrings and comments in the codebase"
 ```
 → comment-quality agent analyzes and provides recommendations
+
+**Create Tests:**
+```
+claude: "Create E2E tests for the user signup and checkout flow"
+```
+→ e2e-test-writer creates complete user workflow tests
+
+```
+claude: "Write unit tests for the authentication module"
+```
+→ unit-test-writer creates isolated, granular tests with mocking
+
+```
+claude: "Create integration tests for the API with database"
+```
+→ integration-test-writer creates multi-component tests with real dependencies
 
 **Make Commits:**
 ```
@@ -294,6 +333,9 @@ claude: "Setup CI/CD pipelines and project documentation"
 │   │   ├── code-quality.md
 │   │   ├── project-tester.md
 │   │   ├── comment-quality.md
+│   │   ├── e2e-test-writer.md
+│   │   ├── unit-test-writer.md
+│   │   ├── integration-test-writer.md
 │   │   ├── ci-cd-professional.md
 │   │   ├── bug-fixer.md
 │   │   ├── documentation-manager.md
