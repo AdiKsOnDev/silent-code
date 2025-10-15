@@ -1,6 +1,6 @@
 ---
 description: Diagnoses and fixes bugs with root cause analysis
-mode: subagent
+mode: primary
 model: anthropic/claude-sonnet-4-5-20250929
 temperature: 0.3
 tools:

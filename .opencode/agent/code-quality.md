@@ -37,6 +37,7 @@ which eslint >/dev/null 2>&1 && eslint . || echo "eslint not found"
 6. Component reusability
 7. Design patterns
 8. Review readiness
+9. Try to keep things in one function unless composable or reusable
 
 ## Output Format
 

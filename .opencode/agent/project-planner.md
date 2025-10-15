@@ -1,6 +1,6 @@
 ---
 description: Creates structured iteration-based development plans for complex projects
-mode: subagent
+mode: primary
 model: anthropic/claude-opus-4-1-20250805
 temperature: 0.2
 tools:
