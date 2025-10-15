@@ -1,4 +1,4 @@
-# Universal Agent System for Claude Code
+# Universal Agent System for AI-Assisted (Not "Driven") Development
 
 A collection of specialized, universal agents for code development, quality assurance, and project management. Each agent works standalone for quick tasks or integrates seamlessly into structured iteration-based workflows for complex projects.
 
@@ -119,10 +119,10 @@ All agents work **standalone** (quick tasks) or **in workflow** (complex project
 ### Test Writing Agents
 
 **`e2e-test-writer`** - End-to-end test creation specialist
-- **What it creates:** Complete user workflow tests (login → action → result)
+- **What it creates:** Complete user workflow tests (CLI workflows, web flows, etc.)
 - **Standalone:** Create E2E tests for critical user journeys
 - **Workflow:** Add E2E tests during implementation phase
-- **Output:** E2E test files using Playwright, Cypress, Selenium, etc.
+- **Output:** E2E test files using Playwright, Cypress, Selenium, subprocess, etc.
 - **Focus:** Real user workflows, quality over coverage
 
 **`unit-test-writer`** - Unit test creation specialist
@@ -173,11 +173,6 @@ All agents work **standalone** (quick tasks) or **in workflow** (complex project
 - **Workflow:** Optional - include when docs need updating
 - **Output:** Updated README.md, CONTRIBUTING.md, CHANGELOG.md
 
-**`linear-manager`** - Issue tracking specialist
-- **What it manages:** Linear issues, projects, milestones
-- **Use:** Project management and issue tracking
-- **Requires:** [linear-cli](https://github.com/AdiKsOnDev/linear-cli)
-
 ## Usage Modes
 
 ### Standalone Usage
@@ -186,59 +181,59 @@ Use individual agents for quick, focused tasks. No iteration workflow required.
 
 **Code Review:**
 ```
-claude: "Review the code quality in src/auth/"
+"Review the code quality in src/auth/"
 ```
 → code-quality agent produces `tmp/reviews/YYYYMMDD_HHMMSS/CODE-QUALITY-REVIEW.md`
 
 **Run Tests:**
 ```
-claude: "Run the test suite and show me the results"
+"Run the test suite and show me the results"
 ```
 → project-tester agent executes tests and reports results
 
 **Fix a Bug:**
 ```
-claude: "There's a bug in login - users can't authenticate"
+"There's a bug in login - users can't authenticate"
 ```
 → bug-fixer agent diagnoses, fixes, documents in `tmp/reports/bugs/PATCH_NOTES.md`
 
 **Implement Feature:**
 ```
-claude: "Add rate limiting to the API endpoints"
+"Add rate limiting to the API endpoints"
 ```
 → implementation-agent writes the code following project patterns
 
 **Setup CI/CD:**
 ```
-claude: "Setup GitHub workflows and Makefile for this project"
+"Setup GitHub workflows and Makefile for this project"
 ```
 → ci-cd-professional creates workflows, Makefile, configs
 
 **Check Documentation:**
 ```
-claude: "Review the docstrings and comments in the codebase"
+"Review the docstrings and comments in the codebase"
 ```
 → comment-quality agent analyzes and provides recommendations
 
 **Create Tests:**
 ```
-claude: "Create E2E tests for the user signup and checkout flow"
+"Create E2E tests for the user signup and checkout flow"
 ```
 → e2e-test-writer creates complete user workflow tests
 
 ```
-claude: "Write unit tests for the authentication module"
+"Write unit tests for the authentication module"
 ```
 → unit-test-writer creates isolated, granular tests with mocking
 
 ```
-claude: "Create integration tests for the API with database"
+"Create integration tests for the API with database"
 ```
 → integration-test-writer creates multi-component tests with real dependencies
 
 **Make Commits:**
 ```
-claude: "Commit these changes with proper conventional commits"
+"Commit these changes with proper conventional commits"
 ```
 → git-history-manager creates semantic commits
 
@@ -248,19 +243,19 @@ For complex projects requiring structured development cycles.
 
 **1. Plan Your Project**
 ```
-claude: "Use iteration-planner to create a development plan for [your project]"
+"Use iteration-planner to create a development plan for [your project]"
 ```
 → Review plan carefully, confirm before proceeding
 
 **2. Start Development**
 ```
-claude: "Begin iteration 1 implementation"
+"Begin iteration 1 implementation"
 ```
 → Agents handle coding, commits, state tracking autonomously
 
 **3. Run Quality Reviews**
 ```
-claude: "Run quality assurance reviews for iteration 1"
+"Run quality assurance reviews for iteration 1"
 ```
 → All agents run in parallel for fast feedback
 
@@ -273,7 +268,7 @@ claude: "Run quality assurance reviews for iteration 1"
 
 **5. Address Feedback (if needed)**
 ```
-claude: "Use feedback-processor to address review issues"
+"Use feedback-processor to address review issues"
 ```
 → Repeat reviews until all quality gates pass
 
@@ -286,21 +281,21 @@ claude: "Use feedback-processor to address review issues"
 
 ### Scenario 1: Quick Code Review Before Commit
 ```
-claude: "Review code quality and run tests before I commit"
+"Review code quality and run tests before I commit"
 ```
 → Agents analyze code and tests, provide feedback
 → Fix any issues, then commit
 
 ### Scenario 2: Bug in Production
 ```
-claude: "There's a memory leak in the background worker process"
+"There's a memory leak in the background worker process"
 ```
 → bug-fixer agent diagnoses, fixes, documents
 → Test the fix, then deploy
 
 ### Scenario 3: New Feature Implementation
 ```
-claude: "Implement OAuth2 authentication for the API"
+"Implement OAuth2 authentication for the API"
 ```
 → implementation-agent writes the code
 → Review and test the implementation
@@ -308,14 +303,14 @@ claude: "Implement OAuth2 authentication for the API"
 
 ### Scenario 4: Complex Multi-Phase Project
 ```
-claude: "Use iteration-planner to build a real-time chat application"
+"Use iteration-planner to build a real-time chat application"
 ```
 → Plan approved → Iteration 1 (backend) → Review → Iteration 2 (frontend) → Review → etc.
 → Structured progress with quality gates at each phase
 
 ### Scenario 5: Setup Project Automation
 ```
-claude: "Setup CI/CD pipelines and project documentation"
+"Setup CI/CD pipelines and project documentation"
 ```
 → ci-cd-professional creates GitHub workflows, Makefile
 → documentation-manager updates README, CONTRIBUTING
@@ -324,24 +319,13 @@ claude: "Setup CI/CD pipelines and project documentation"
 ## Project Structure
 
 ```
-├── .claude/
-│   ├── agents/                           # Agent configurations
-│   │   ├── iteration-planner.md
-│   │   ├── implementation-agent.md
-│   │   ├── feedback-processor.md
-│   │   ├── git-history-manager.md
-│   │   ├── code-quality.md
-│   │   ├── project-tester.md
-│   │   ├── comment-quality.md
-│   │   ├── e2e-test-writer.md
-│   │   ├── unit-test-writer.md
-│   │   ├── integration-test-writer.md
-│   │   ├── ci-cd-professional.md
-│   │   ├── bug-fixer.md
-│   │   ├── documentation-manager.md
-│   │   └── linear-manager.md
-│   └── settings.json                     # Claude Code settings
-├── tmp/reports/                          # Iteration tracking
+├── .claude/                                # For Claude Code users
+│   ├── agents/                           # Full agent configurations
+│   └── settings.json
+├── .opencode/                              # For OpenCode users
+│   ├── agents/                           # Condensed agent configs (<100 lines)
+│   └── README.md
+├── tmp/reports/                            # Iteration tracking
 │   ├── iteration_X/
 │   │   ├── state.md                      # Current iteration status
 │   │   ├── reviews/                      # Quality review results
@@ -353,8 +337,8 @@ claude: "Setup CI/CD pipelines and project documentation"
 │   │   └── FEEDBACK-FIXES.md             # Summary of fixes made
 │   └── bugs/                             # Post-iteration bug tracking
 │       └── PATCH_NOTES.md                # Bug fixes and patches
-├── CLAUDE.md                             # Workflow instructions (read this!)
-└── README.md                             # This file
+├── CLAUDE.md                               # Workflow instructions
+└── README.md                               # This file
 ```
 
 ## Your Role in Development
@@ -495,6 +479,15 @@ When using structured iteration workflows, each iteration progresses through the
 4. ◆ **Adapt as needed** - Agents are flexible, use them how they work best for you
 5. ◆ **Build knowledge** - Learn from agent analysis to improve your skills
 
+## Compatibility
+
+This agent system works with:
+- **Claude Code** - Use `.claude/` directory for full agent definitions
+- **OpenCode** - Use `.opencode/` directory for condensed agents (<100 lines)
+- **Custom AI Tools** - Adapt agent definitions to your platform
+
+Both directories are included for maximum compatibility.
+
 ## License
 
-This template is provided as-is for use with Claude Code. Customize freely for your project needs.
+This template is provided as-is for AI-assisted development. Customize freely for your project needs.
