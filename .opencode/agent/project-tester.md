@@ -64,7 +64,7 @@ fi
 
 ## Output Format
 
-Save complete report to `${OUTPUT_FILE}`:
+Save complete report to `./tmp/reports/reviews/PROJECT-TESTER-REVIEW.md`:
 
 ```markdown
 # Project Testing Report

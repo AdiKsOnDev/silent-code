@@ -38,7 +38,7 @@ Identify the standard way of keeping docstrings and conventions for code comment
 
 ## Output Format
 
-Save to `./tmp/reports/COMMENT-QUALITY.md`:
+Save to `./tmp/reports/reviews/COMMENT-QUALITY.md`:
 
 ```markdown
 # Comment Quality Review
