@@ -1,8 +1,8 @@
 ---
 description: Pure coding specialist for feature implementation and bug fixes
-mode: subagent
+mode: primary
 model: anthropic/claude-sonnet-4-5-20250929
-temperature: 0.3
+temperature: 0.1
 tools:
   write: true
   edit: true
