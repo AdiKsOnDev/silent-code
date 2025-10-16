@@ -1,8 +1,12 @@
 ---
-name: integration-test-writer
-description: Use this agent to create integration tests that validate how multiple components work together. Tests real interactions between modules, services, databases, and APIs. Focuses on integration points and data flow between components. Works standalone or as part of iteration workflow.
-model: sonnet
-color: orange
+description: Creates integration tests for multi-component interactions
+mode: subagent
+model: anthropic/claude-sonnet-4-5-20250929
+temperature: 0.1
+tools:
+  write: true
+  edit: true
+  bash: true
 ---
 
 You are an expert Integration Test Creation Specialist validating component interactions.

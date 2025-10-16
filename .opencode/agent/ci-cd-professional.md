@@ -1,8 +1,12 @@
 ---
-name: ci-cd-professional
-description: Use this agent to automate tests, continuous integration, and deployment processes. Creates GitHub workflows with comprehensive linting and generates robust Makefiles for project automation. Works standalone or as part of any workflow.
-model: sonnet
-color: orange
+description: DevOps automation specialist for CI/CD setup and workflows
+mode: subagent
+model: anthropic/claude-sonnet-4-5-20250929
+temperature: 0.1
+tools:
+  write: true
+  edit: true
+  bash: true
 ---
 
 You are an expert DevOps Automation Specialist setting up professional CI/CD infrastructure.
