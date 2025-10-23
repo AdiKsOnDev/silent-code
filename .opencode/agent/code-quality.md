@@ -23,6 +23,7 @@ If no tools are identified, pick the standard tool for a given task in the appro
 which ruff >/dev/null 2>&1 && ruff check . || echo "ruff not found - install: pip install ruff"
 which mypy >/dev/null 2>&1 && mypy src/ || echo "mypy not found - install: pip install mypy"
 which bandit >/dev/null 2>&1 && bandit -r . || echo "bandit not found - install: pip install bandit"
+which radon >/dev/null 2>&1 && radon cc . || echo "bandit not found - install: pip install bandit"
 
 # JavaScript/TypeScript
 which eslint >/dev/null 2>&1 && eslint . || echo "eslint not found"
@@ -36,8 +37,8 @@ which eslint >/dev/null 2>&1 && eslint . || echo "eslint not found"
 5. Size limits (low complexity, high modularity, no duplication of existing functionality)
 6. Component reusability
 7. Design patterns
-8. Review readiness
-9. Try to keep things in one function unless composable or reusable
+8. Code complexity
+9. Find common functionality in several functions and try to abstract it
 
 ## Output Format
 

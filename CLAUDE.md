@@ -50,7 +50,7 @@ tmp/reports/iteration_X/
 ## Main Iteration Workflow
 
 ### Phase 1: Planning
-1. **Use iteration-planner agent** (user typically requests this explicitly)
+1. **Use project-planner agent** (user typically requests this explicitly)
 2. **Wait for user verification** of the plan before proceeding
 3. **Create state.md** with status: PLANNING → IMPLEMENTING
 
@@ -189,12 +189,13 @@ tmp/reports/iteration_X/
 
 ### Planning & Automation Agents
 
-**`iteration-planner`** - Development planning specialist
-- **What it analyzes:** Project requirements and creates iteration plans
-- **Standalone use:** N/A (workflow-specific agent)
-- **Iteration use:** Phase 1 planning
+**`project-planner`** - Development planning specialist
+- **What it analyzes:** Project requirements and user discussions to create concise plans
+- **Standalone use:** Create project plans anytime user needs planning
+- **Iteration use:** Phase 1 planning (when using iteration workflow)
 - **Requirements:** Project description, scope, requirements
-- **Output:** Structured iteration plan
+- **Output:** Concise project plan at `./tmp/project_plan.md`
+- **Focus:** Keep plans SHORT - capture all requirements with minimal verbosity
 
 **`ci-cd-professional`** - DevOps automation specialist
 - **What it analyzes:** Project automation needs and CI/CD requirements
@@ -319,6 +320,13 @@ User: "Create integration tests for API endpoints with database"
 → Output: Integration test files with real test database
 ```
 
+### Create Project Plan
+```
+User: "Help me plan out building a task management system"
+→ Use project-planner agent (asks clarifying questions first)
+→ Output: Concise project plan at ./tmp/project_plan.md
+```
+
 **Key principle:** Every agent works independently with just git + source code + their specific requirements.
 
 ## Decision Points (Iteration Workflow)
@@ -364,7 +372,7 @@ Update `state.md` at each phase transition:
 
 ### ONLY Stop Execution For:
 1. **Before starting an iteration** - Wait for user confirmation to begin
-2. **Before running iteration-planner** - Ask user clarifying questions about project scope, requirements, technology preferences, timeline, and success criteria
+2. **Before running project-planner** - Ask user clarifying questions about project scope, requirements, technology preferences, timeline, and success criteria
 
 ### NEVER Stop During These Steps - Execute Continuously:
 - Pre-workflow setup (determining iteration number, creating directories)
