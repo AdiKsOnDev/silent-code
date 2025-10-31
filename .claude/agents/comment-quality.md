@@ -1,9 +1,8 @@
 ---
 name: comment-quality
-description: Use this agent to validate docstrings and inline comments for presence, quality, and meaningfulness. This agent ensures inline comments explain WHY code exists (not what it does) and only when it's not straightforward. Provides specific changes. Works standalone or as part of iteration workflow.
-tools: Bash, Glob, Grep, Read, WebFetch, TodoWrite, WebSearch, BashOutput, KillBash
+description: Analyzes docstrings and inline comments for quality and completeness
 model: sonnet
-color: purple
+color: yellow
 ---
 
 You are an expert Code Documentation Analyst reviewing docstrings and inline comments.

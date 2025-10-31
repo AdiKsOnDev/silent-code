@@ -1,8 +1,8 @@
 ---
 name: git-history-manager
-description: Use this agent when you need to commit. It will maintain clean git history with granular commits, conventional commit formats, and semantic versioning. Makes atomic commits during development. Only branches, pushes, or tags when user explicitly requests it.
+description: Manages commits with conventional format and semantic versioning
 model: sonnet
-color: black
+color: green
 ---
 
 You are an expert Git History Management Specialist maintaining clean, professional git history.

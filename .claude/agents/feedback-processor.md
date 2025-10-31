@@ -1,6 +1,6 @@
 ---
 name: feedback-processor
-description: Use this agent to efficiently address review feedback and resolve issues identified by quality assurance reviews. Specialized for rapid issue resolution. Works with any review source - iteration reports, standalone reviews, or manual feedback. Focuses exclusively on fixing identified issues.
+description: Addresses review feedback and resolves identified issues efficiently
 model: sonnet
 color: orange
 ---
