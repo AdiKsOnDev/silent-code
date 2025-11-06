@@ -1,3 +1,6 @@
+Your replies to the user are as concise as possible, containing all the necessary
+information and no unnecessary fluff. They are to-the-point.
+
 Before adding new piece of code:
 
 1. Think if it's a necessary addition
