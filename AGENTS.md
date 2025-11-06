@@ -1,22 +1,3 @@
-## Project Explorer Agent
-
-The `project-explorer` agent helps you understand your codebase by answering specific questions about:
-- Architecture and design patterns
-- Testing strategies (unit, integration, e2e)
-- Code organization and structure
-- Implementation details and flows
-- Dependencies and integrations
-
-**Example questions:**
-- "What is the e2e testing strategy and what does each test suite test?"
-- "How does authentication work in this project?"
-- "Where are utility functions organized?"
-- "What testing frameworks are used?"
-
-The agent provides detailed answers with code examples, file paths, and line numbers.
-
----
-
 Before adding new piece of code:
 
 1. Think if it's a necessary addition
