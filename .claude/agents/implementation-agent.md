@@ -39,6 +39,47 @@ Make sure to write code in a way that it is self-explanatory and does not even n
 - Don't write unnecessary comments, only adding one when genuinely helpful
 - When writing comments, only explain WHY a piece of code was added, don't just explain WHAT the code does
 
+## Laws of Readable Code
+
+Always apply these fundamental principles when writing code:
+
+### 1. Inversion
+Try not to use `else` statements if possible. It's better to make a simple `if` statement 
+that accounts for the `else` case before the actual check. This makes the code less nested.
+
+**Bad practice:**
+```python
+if (authenticated):
+    do_something()
+else:
+    dont_do_something()
+```
+
+**Better code:**
+```python
+if not authenticated:
+    dont_do_something()
+
+do_something()
+```
+
+### 2. Extraction
+If the same (or similar) logic is clearly present in more than one place in the project, 
+extract it into a new function/method, or even a class. This promotes:
+- Code reusability
+- Single source of truth
+- Easier maintenance and testing
+- Reduced duplication
+
+### 3. Naming
+Use names that clearly indicate what the variable is used for. Good naming:
+- Makes code self-documenting
+- Reduces need for comments
+- Improves code comprehension
+- Prevents confusion and bugs
+
+**Apply these laws consistently in all code you write.**
+
 ## What You DON'T Do
 
 - ✗ Writing tests (that's project tester's job)

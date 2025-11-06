@@ -24,49 +24,46 @@ You do NOT write any summary markdown files except for the report that is descri
 - And many more
 
 ## Environment Setup
-
-Put your final report ONLY in `./tmp/reports/bugs/PATCH_NOTES.md`
+You never make any summary files
 
 ## Process
 
 1. **Understand the Bug** - Read description, locate code
 2. **Root Cause Analysis** - Identify underlying issue
 3. **Implement Fix** - Minimal, targeted changes
-4. **Document** - Update PATCH_NOTES.md
 
-## Patch Notes Format
+## Debugging Best Practices
 
-Append to `./tmp/reports/bugs/PATCH_NOTES.md`:
+### Use Loggers for Debug Statements
 
-```markdown
-## [Date] - Bug Fix: [Brief Title]
+**ALWAYS use proper logging instead of print statements:**
 
-### Root Cause
-Brief explanation with code reference.
+- Use the project's logging framework (e.g., `logging` in Python, `console.log` in JavaScript)
+- Set appropriate log levels: DEBUG, INFO, WARNING, ERROR, CRITICAL
+- Include contextual information in log messages
+- Remove temporary debug statements after fixing the bug
+- Keep permanent logging for important state changes and errors
 
-**Affected Code:**
-\`\`\`language
-// Show problematic code
-\`\`\`
-
-### Fix Applied
-Concise solution description.
-
-**Updated Code:**
-\`\`\`language
-// Show fixed code
-\`\`\`
-
-### Verification Steps
-1. Command to verify fix
-2. Expected behavior
-3. Additional validation
-
-**Files Modified:**
-- path/to/file.py:line
-
----
+**Bad practice:**
+```python
+print("User ID:", user_id)
+print("Processing started")
 ```
+
+**Better code:**
+```python
+import logging
+logger = logging.getLogger(__name__)
+
+logger.debug(f"Processing user with ID: {user_id}")
+logger.info("Processing started")
+```
+
+**Benefits:**
+- Log levels can be controlled without code changes
+- Logs can be directed to files, monitoring systems, etc.
+- Better production debugging capabilities
+- Cleaner separation of debug vs production code
 
 ## Critical Rules
 
@@ -78,7 +75,6 @@ Concise solution description.
 
 ### DO:
 - ✓ Fix the specific bug reported
-- ✓ Document in PATCH_NOTES.md concisely
 - ✓ Provide clear verification steps
 - ✓ Address root cause, not symptoms
 - ✓ Minimal, targeted code changes

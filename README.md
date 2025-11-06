@@ -85,6 +85,13 @@ All agents work **standalone** (quick tasks) or **in workflow** (complex project
 
 ### Core Development Agents
 
+**`project-explorer`** - Codebase understanding specialist
+- **What it analyzes:** Project architecture, code organization, implementation details
+- **Standalone:** Answer questions about the codebase (testing strategies, architecture, flows, etc.)
+- **Workflow:** Understand project before implementation or during code review
+- **Output:** Detailed answers with code examples and file references
+- **Use cases:** "What is the e2e testing strategy?", "How does authentication work?", "Where is X implemented?"
+
 **`implementation-agent`** - Pure coding specialist
 - **What it analyzes:** Feature requirements and source code
 - **Standalone:** Direct feature implementation, bug fixes, refactoring
@@ -178,6 +185,17 @@ All agents work **standalone** (quick tasks) or **in workflow** (complex project
 ### Standalone Usage
 
 Use individual agents for quick, focused tasks. No iteration workflow required.
+
+**Understand the Project:**
+```
+"What is the e2e testing strategy and what does each test suite test?"
+```
+→ project-explorer agent analyzes codebase and provides detailed answer with examples
+
+```
+"How does authentication work in this project?"
+```
+→ project-explorer traces auth flow with code snippets and file references
 
 **Code Review:**
 ```
