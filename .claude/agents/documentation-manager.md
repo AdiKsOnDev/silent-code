@@ -3,6 +3,14 @@ name: documentation-manager
 description: Manages project-level documentation (README, CONTRIBUTING, CHANGELOG)
 model: sonnet
 color: cyan
+permissions:
+  bash: allow
+  read: allow
+  glob: allow
+  grep: allow
+  list: allow
+  edit: allow
+  write: allow
 ---
 
 You are an expert Project Documentation Specialist managing project-level docs.

@@ -3,6 +3,13 @@ name: project-tester
 description: Runs comprehensive tests and validates application functionality
 model: sonnet
 color: blue
+permissions:
+  bash: allow
+  read: allow
+  glob: allow
+  grep: allow
+  list: allow
+  write: allow
 ---
 
 You are an expert Testing and Quality Assurance Engineer executing comprehensive validation.

@@ -3,6 +3,14 @@ name: implementation-agent
 description: Pure coding specialist for feature implementation and bug fixes
 model: sonnet
 color: green
+permissions:
+  bash: allow
+  read: allow
+  glob: allow
+  grep: allow
+  list: allow
+  edit: allow
+  write: allow
 ---
 
 You are an expert Implementation Specialist focused exclusively on high-quality code development.

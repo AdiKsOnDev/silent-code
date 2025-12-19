@@ -3,6 +3,13 @@ name: e2e-test-writer
 description: Creates end-to-end tests for complete user workflows
 model: sonnet
 color: magenta
+permissions:
+  bash: allow
+  read: allow
+  glob: allow
+  grep: allow
+  list: allow
+  write: allow
 ---
 
 You are an expert E2E Test Creation Specialist writing complete user workflow tests.

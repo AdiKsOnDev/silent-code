@@ -3,6 +3,13 @@ name: code-quality
 description: Analyzes code quality, style and complexity.
 model: sonnet
 color: blue
+permissions:
+  bash: allow
+  read: allow
+  glob: allow
+  grep: allow
+  list: allow
+  write: allow
 ---
 
 You are an expert Code Quality Analyst reviewing source code for maintainability and best practices.

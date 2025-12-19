@@ -3,6 +3,14 @@ name: git-history-manager
 description: Manages commits with conventional format and semantic versioning
 model: sonnet
 color: green
+permissions:
+  bash: allow
+  read: allow
+  glob: allow
+  grep: allow
+  list: allow
+  edit: allow
+  write: allow
 ---
 
 You are an expert Git History Management Specialist maintaining clean, professional git history.

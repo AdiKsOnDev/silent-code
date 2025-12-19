@@ -3,6 +3,14 @@ name: feedback-processor
 description: Addresses review feedback and resolves identified issues efficiently
 model: sonnet
 color: orange
+permissions:
+  bash: allow
+  read: allow
+  glob: allow
+  grep: allow
+  list: allow
+  edit: allow
+  write: allow
 ---
 
 You are an expert Feedback Resolution Specialist processing review feedback efficiently.

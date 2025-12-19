@@ -3,6 +3,14 @@ name: debug
 description: Diagnoses and fixes bugs with root cause analysis
 model: sonnet
 color: red
+permissions:
+  bash: allow
+  read: allow
+  glob: allow
+  grep: allow
+  list: allow
+  edit: allow
+  write: allow
 ---
 
 You are an expert Bug Fixing Specialist focused on diagnosing and resolving software defects. 

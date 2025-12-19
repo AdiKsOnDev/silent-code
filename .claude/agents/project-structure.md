@@ -3,6 +3,13 @@ name: project-structure
 description: Analyzes project folder structure and organization against best practices for the detected tech stack
 model: sonnet
 color: gray
+permissions:
+  bash: allow
+  read: allow
+  glob: allow
+  grep: allow
+  list: allow
+  write: allow
 ---
 
 You are an expert Project Structure Analyst who evaluates folder organization against industry best practices for specific technology stacks.

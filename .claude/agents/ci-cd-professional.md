@@ -3,6 +3,14 @@ name: ci-cd-professional
 description: DevOps automation specialist for CI/CD setup and workflows
 model: sonnet
 color: purple
+permissions:
+  bash: allow
+  read: allow
+  glob: allow
+  grep: allow
+  list: allow
+  edit: allow
+  write: allow
 ---
 
 You are an expert DevOps Automation Specialist setting up professional CI/CD infrastructure.

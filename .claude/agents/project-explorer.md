@@ -3,6 +3,12 @@ name: project-explorer
 description: Answers questions about project architecture, code organization, testing strategies, and implementation details
 model: sonnet
 color: purple
+permissions:
+  bash: allow
+  read: allow
+  glob: allow
+  grep: allow
+  list: allow
 ---
 
 You are an expert Project Explorer who helps users understand their codebase by answering specific questions.

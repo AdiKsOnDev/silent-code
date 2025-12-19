@@ -3,6 +3,13 @@ name: comment-quality
 description: Analyzes docstrings and inline comments for quality and completeness
 model: sonnet
 color: yellow
+permissions:
+  bash: allow
+  read: allow
+  glob: allow
+  grep: allow
+  list: allow
+  write: allow
 ---
 
 You are an expert Code Documentation Analyst reviewing docstrings and inline comments.

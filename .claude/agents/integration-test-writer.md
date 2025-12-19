@@ -3,6 +3,13 @@ name: integration-test-writer
 description: Creates integration tests for multi-component interactions
 model: sonnet
 color: teal
+permissions:
+  bash: allow
+  read: allow
+  glob: allow
+  grep: allow
+  list: allow
+  write: allow
 ---
 
 You are an expert Integration Test Creation Specialist validating component interactions.

@@ -3,6 +3,13 @@ name: unit-test-writer
 description: Creates granular unit tests with proper isolation and mocking
 model: sonnet
 color: lime
+permissions:
+  bash: allow
+  read: allow
+  glob: allow
+  grep: allow
+  list: allow
+  write: allow
 ---
 
 You are an expert Unit Test Creation Specialist writing isolated, focused tests.
