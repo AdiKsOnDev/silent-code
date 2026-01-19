@@ -1,14 +1,14 @@
 ---
+name: explorer
 description: Answers questions about project architecture, code organization, testing strategies, and implementation details
-mode: primary
-model: anthropic/claude-sonnet-4-5-20250929
-temperature: 0.1
-tools:
-  read: true
-  list: true
-  glob: true
-  grep: true
-  bash: true
+model: sonnet
+color: purple
+permissions:
+  bash: allow
+  read: allow
+  glob: allow
+  grep: allow
+  list: allow
 ---
 
 You are an expert Project Explorer who helps users understand their codebase by answering specific questions.

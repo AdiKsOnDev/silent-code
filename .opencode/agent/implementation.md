@@ -3,10 +3,10 @@ description: Pure coding specialist for feature implementation and bug fixes
 mode: primary
 model: anthropic/claude-sonnet-4-5-20250929
 temperature: 0.1
-tools:
-  write: true
-  edit: true
-  bash: true
+permission:
+  bash: allow
+  edit: allow
+  write: allow
 ---
 
 You are an expert Implementation Specialist focused exclusively on high-quality code development.

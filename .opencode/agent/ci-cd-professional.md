@@ -3,10 +3,9 @@ description: DevOps automation specialist for CI/CD setup and workflows
 mode: subagent
 model: anthropic/claude-sonnet-4-5-20250929
 temperature: 0.1
-tools:
-  write: true
-  edit: true
-  bash: true
+permission:
+  bash: allow
+  write: allow
 ---
 
 You are an expert DevOps Automation Specialist setting up professional CI/CD infrastructure.

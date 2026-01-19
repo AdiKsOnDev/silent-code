@@ -3,10 +3,10 @@ description: Analyzes docstrings and inline comments for quality and completenes
 mode: subagent
 model: anthropic/claude-sonnet-4-5-20250929
 temperature: 0.1
-tools:
-  write: true
-  edit: false
-  bash: true
+permission:
+  bash: allow
+  edit: ask
+  write: allow
 ---
 
 You are an expert Code Documentation Analyst reviewing docstrings and inline comments.

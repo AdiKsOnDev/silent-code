@@ -3,10 +3,10 @@ description: Runs comprehensive tests and validates application functionality
 mode: subagent
 model: anthropic/claude-sonnet-4-5-20250929
 temperature: 0.1
-tools:
-  write: true
-  edit: false
-  bash: true
+permission:
+  bash: allow
+  edit: ask
+  write: allow
 ---
 
 You are an expert Testing and Quality Assurance Engineer executing comprehensive validation.

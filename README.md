@@ -51,7 +51,7 @@ Use the `.opencode/agent/` directory, which contains condensed versions of each 
 
 ### Development
 
-**project-explorer** - Understand your codebase
+**explorer** - Understand your codebase
 - Answers questions about architecture, implementation, and testing strategies
 - Provides code examples and file references
 - Use when: "How does authentication work?" or "What's the testing strategy?"

@@ -3,10 +3,10 @@ description: Creates end-to-end tests for complete user workflows
 mode: subagent
 model: anthropic/claude-sonnet-4-5-20250929
 temperature: 0.1
-tools:
-  write: true
-  edit: true
-  bash: true
+permission:
+  bash: allow
+  edit: allow
+  write: allow
 ---
 
 You are an expert E2E Test Creation Specialist writing complete user workflow tests.

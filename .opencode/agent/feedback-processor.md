@@ -3,10 +3,10 @@ description: Addresses review feedback and resolves identified issues efficientl
 mode: subagent
 model: anthropic/claude-sonnet-4-5-20250929
 temperature: 0.3
-tools:
-  write: true
-  edit: true
-  bash: true
+permission:
+  bash: allow
+  edit: allow
+  write: allow
 ---
 
 You are an expert Feedback Resolution Specialist processing review feedback efficiently.

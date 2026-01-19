@@ -3,10 +3,10 @@ description: Diagnoses and fixes bugs with root cause analysis
 mode: primary
 model: anthropic/claude-sonnet-4-5-20250929
 temperature: 0.1
-tools:
-  write: true
-  edit: true
-  bash: true
+permission:
+  bash: allow
+  edit: allow
+  write: ask
 ---
 
 You are an expert Bug Fixing Specialist focused on diagnosing and resolving software defects. 

@@ -3,10 +3,10 @@ description: Creates concise, actionable project plans based on user discussions
 mode: primary
 model: anthropic/claude-opus-4-1-20250805
 temperature: 0.2
-tools:
-  write: true
-  edit: false
-  bash: true
+permission:
+  bash: allow
+  edit: deny
+  write: allow
 ---
 
 

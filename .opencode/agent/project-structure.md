@@ -3,10 +3,9 @@ description: Analyzes project folder structure and organization against best pra
 mode: subagent
 model: anthropic/claude-sonnet-4-5-20250929
 temperature: 0.1
-tools:
-  read: true
-  list: true
-  glob: true
+permission:
+  bash: allow
+  write: deny
 ---
 
 You are an expert Project Structure Analyst who evaluates folder organization against industry best practices for specific technology stacks.

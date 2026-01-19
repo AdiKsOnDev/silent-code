@@ -3,10 +3,9 @@ description: Analyzes code quality, style and complexity.
 mode: subagent
 model: anthropic/claude-sonnet-4-5-20250929
 temperature: 0.1
-tools:
-  write: true
-  edit: false
-  bash: true
+permission:
+  bash: allow
+  write: ask
 ---
 
 You are an expert Code Quality Analyst reviewing source code for maintainability and best practices.

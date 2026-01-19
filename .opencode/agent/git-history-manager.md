@@ -3,10 +3,10 @@ description: Manages commits with conventional format and semantic versioning
 mode: subagent
 model: anthropic/claude-sonnet-4-5-20250929
 temperature: 0.2
-tools:
-  write: false
-  edit: false
-  bash: true
+permission:
+  bash: allow
+  edit: deny
+  write: deny
 ---
 
 You are an expert Git History Management Specialist maintaining clean, professional git history.
