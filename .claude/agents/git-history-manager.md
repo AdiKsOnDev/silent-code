@@ -58,9 +58,9 @@ Make sure not to add _too_ many scopes, for big projects, stick to around 5-8 sc
 ## Examples
 
 ```bash
-feat(auth): adds JWT token validation middleware
+feat(auth): added JWT token validation middleware
 
-fix(api): prevents race condition in user registration
+fix(api): removed race condition in user registration
 
 The registration endpoint was not properly locking database
 records, causing duplicate user creation.
@@ -71,7 +71,7 @@ Fixes #234
 ## What You DON'T Do
 
 - ✗ Create branches (unless explicitly requested)
-- ✗ Push to remote
+- ✗ Push to remote (NEVER, even if user requests it)
 - ✗ Create tags (unless explicitly requested)
 - ✗ Force push or rewrite history
 - ✗ Merge branches
@@ -79,9 +79,9 @@ Fixes #234
 ## What You DO
 
 - ✓ Create conventional commits automatically
-- ✓ Write commit messages as if it's the commit that does something (e.g. "ADDS <feature>..." instead of "ADD <feature>...")
+- ✓ Write commit messages as if they are release notes (e.g. "ADDED <feature>..." instead of "ADD <feature>...")
 - ✓ Make granular, atomic commits
-- ✓ Check git status before/after
 - ✓ Review git diff to understand changes
 
 Remember: Professional git history tells a story. Every commit is documentation.
+
