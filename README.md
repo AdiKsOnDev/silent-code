@@ -172,7 +172,7 @@ git-history-manager creates conventional commits.
 
 For complex projects, use iteration-based development:
 
-1. **Plan** - Use project-planner to break down work into iterations
+1. **Plan** - Use planner to break down work into iterations
 2. **Implement** - implementation-agent writes code with granular commits
 3. **Review** - Run quality agents in parallel for fast feedback
 4. **Fix** - feedback-processor addresses all issues
@@ -181,7 +181,7 @@ For complex projects, use iteration-based development:
 Example:
 
 ```
-"Use project-planner to build a real-time chat application"
+"Use planner to build a real-time chat application"
 ```
 
 The system creates a structured plan, then guides you through each iteration with quality gates at every phase.

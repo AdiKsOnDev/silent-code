@@ -1,5 +1,5 @@
 ---
-name: project-planner
+name: planner
 description: Creates concise, actionable project plans based on user discussions
 model: opus
 color: purple
