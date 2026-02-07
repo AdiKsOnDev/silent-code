@@ -1,7 +1,7 @@
 ---
 name: comment-quality
 description: Analyzes docstrings and inline comments for quality and completeness
-model: sonnet
+model: opus
 color: yellow
 permissions:
   bash: allow

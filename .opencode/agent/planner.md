@@ -1,7 +1,7 @@
 ---
 description: Creates concise, actionable project plans based on user discussions
 mode: primary
-model: anthropic/claude-opus-4-1-20250805
+model: anthropic/claude-opus-4-6
 temperature: 0.2
 permission:
   bash: allow

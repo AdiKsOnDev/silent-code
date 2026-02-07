@@ -1,7 +1,7 @@
 ---
 name: project-tester
 description: Runs comprehensive tests and validates application functionality
-model: sonnet
+model: opus
 color: blue
 permissions:
   bash: allow

@@ -1,7 +1,7 @@
 ---
 name: explorer
 description: Answers questions about project architecture, code organization, testing strategies, and implementation details
-model: sonnet
+model: opus
 color: purple
 permissions:
   bash: allow

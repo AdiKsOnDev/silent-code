@@ -1,7 +1,7 @@
 ---
 name: code-quality
 description: Analyzes code quality, style and complexity.
-model: sonnet
+model: opus
 color: blue
 permissions:
   bash: allow

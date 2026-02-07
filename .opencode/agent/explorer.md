@@ -1,7 +1,7 @@
 ---
 description: Answers questions about project architecture, code organization, testing strategies, and implementation details
 mode: primary
-model: anthropic/claude-sonnet-4-5-20250929
+model: anthropic/claude-opus-4-6
 temperature: 0.1
 permission:
   bash: allow

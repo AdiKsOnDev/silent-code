@@ -1,7 +1,7 @@
 ---
 name: documentation-manager
 description: Manages project-level documentation (README, CONTRIBUTING, CHANGELOG)
-model: sonnet
+model: opus
 color: cyan
 permissions:
   bash: allow

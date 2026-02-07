@@ -1,7 +1,7 @@
 ---
 name: project-structure
 description: Analyzes project folder structure and organization against best practices for the detected tech stack
-model: sonnet
+model: opus
 color: gray
 permissions:
   bash: allow
