@@ -1,7 +1,7 @@
 ---
 description: DevOps automation specialist for CI/CD setup and workflows
 mode: subagent
-model: anthropic/claude-sonnet-4-5-20250929
+model: anthropic/claude-sonnet-4-6
 temperature: 0.1
 permission:
   bash: allow

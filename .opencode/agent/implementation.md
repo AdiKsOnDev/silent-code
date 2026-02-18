@@ -1,7 +1,7 @@
 ---
 description: Pure coding specialist for feature implementation and bug fixes
 mode: primary
-model: anthropic/claude-sonnet-4-5-20250929
+model: anthropic/claude-sonnet-4-6
 temperature: 0.1
 permission:
   bash: allow

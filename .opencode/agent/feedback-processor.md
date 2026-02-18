@@ -1,7 +1,7 @@
 ---
 description: Addresses review feedback and resolves identified issues efficiently
 mode: subagent
-model: anthropic/claude-sonnet-4-5-20250929
+model: anthropic/claude-sonnet-4-6
 temperature: 0.3
 permission:
   bash: allow
